@@ -1,5 +1,4 @@
 import { MdAdd } from "react-icons/md";
-import { useMediaQuery } from "@inubekit/hooks";
 import { Text } from "@inubekit/text";
 import { Stack } from "@inubekit/stack";
 import { Button } from "@inubekit/button";
@@ -13,6 +12,7 @@ interface IPtionsButton {
 interface IFieldsetProps {
   title: string;
   children: JSX.Element | JSX.Element[];
+  isMobile: boolean;
   aspectRatio?: string;
   heightFieldset?: string;
   descriptionTitle?: string;
@@ -29,11 +29,9 @@ export const Fieldset = (props: IFieldsetProps) => {
     aspectRatio,
     descriptionTitle,
     activeButton,
-    hasTable = false,
+    isMobile,
     hasOverflow,
   } = props;
-
-  const isMobile = useMediaQuery("(max-width:880px)");
 
   return (
     <Stack
@@ -49,7 +47,7 @@ export const Fieldset = (props: IFieldsetProps) => {
             appearance="gray"
             size={isMobile ? "medium" : "large"}
           >
-            {`${title} `}
+            {title}
           </Text>
           {descriptionTitle && (
             <Text type="title" ellipsis size={isMobile ? "medium" : "large"}>
@@ -72,7 +70,6 @@ export const Fieldset = (props: IFieldsetProps) => {
       <StyledContainerFieldset
         $aspectRatio={aspectRatio}
         $isMobile={isMobile}
-        $hasTable={hasTable}
         $hasOverflow={hasOverflow}
       >
         {children}

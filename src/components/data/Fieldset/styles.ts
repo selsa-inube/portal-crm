@@ -4,7 +4,6 @@ import { inube } from "@inubekit/foundations";
 interface IStyledContainerFieldset {
   $aspectRatio?: string;
   $isMobile: boolean;
-  $hasTable: boolean;
   $hasOverflow?: boolean;
 }
 
@@ -14,15 +13,15 @@ export const StyledContainerFieldset = styled.div<IStyledContainerFieldset>`
   border-radius: 8px;
   border-width: 2px;
   border-style: solid;
-  aspect-ratio: ${({ $aspectRatio, $isMobile }) => !$isMobile && $aspectRatio};
+  aspect-ratio: ${({ $aspectRatio }) => $aspectRatio};
   border-color: ${({ theme }) =>
     theme?.palette?.neutral?.N200 || inube.palette.neutral.N200};
   box-shadow: 0px 2px 6px
     ${({ theme }) => theme?.palette?.neutral?.N40 || inube.palette.neutral.N40};
-  padding-top: ${({ $hasTable }) => !$hasTable && "16px"};
-  padding-bottom: ${({ $hasTable }) => !$hasTable && "16px"};
-  padding-right: ${({ $hasTable }) => !$hasTable && "8px"};
-  padding-left: ${({ $hasTable }) => !$hasTable && "8px"};
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-right: 8px;
+  padding-left: 8px;
 
   ${({ $isMobile, theme }) =>
     !$isMobile &&
