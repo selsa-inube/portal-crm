@@ -34,7 +34,7 @@ export const UnfulfilledRequirements = (
           <Text>Causa de incumplimiento:</Text>
           <Divider />
           <Text appearance="gray" size="medium">
-            {causeNoncompliance}.
+            {causeNoncompliance}
           </Text>
         </Stack>
       </Stack>
