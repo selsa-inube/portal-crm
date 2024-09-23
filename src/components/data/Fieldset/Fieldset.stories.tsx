@@ -26,6 +26,12 @@ const meta: Meta<typeof Fieldset> = {
     children: {
       description: "children of the component",
     },
+    isMobile: {
+      control: {
+        type: "boolean",
+      },
+      description: "isMobile of the component",
+    },
   },
 };
 

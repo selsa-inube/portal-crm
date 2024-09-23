@@ -25,6 +25,12 @@ const meta: Meta<typeof UnfulfilledRequirements> = {
       },
       description: "causeNoncompliance of the component",
     },
+    isMobile: {
+      control: {
+        type: "boolean",
+      },
+      description: "isMobile of the component",
+    },
   },
 };
 
