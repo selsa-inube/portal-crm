@@ -47,11 +47,31 @@ const Example = () => (
   </Stack>
 );
 
+const SelectedExample = () => (
+  <Stack direction="column" gap="16px">
+    <Text appearance="dark">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum culpa
+      neque ab! Ab, quibusdam magnam! Quod enim dolor blanditiis quos voluptatum
+      dolores, asperiores maxime. Beatae possimus quo voluptatem doloribus
+      cumque!
+    </Text>
+  </Stack>
+);
+
 export const Default: Story = {
   args: {
     title: "Por hacer",
     descriptionTitle: "Dorian Medina López",
     children: <Example />,
+  },
+};
+
+export const Selected: Story = {
+  args: {
+    title: "Por hacer",
+    descriptionTitle: "Dorian Medina López",
+    children: <SelectedExample />,
+    isClickable: true,
   },
 };
 
