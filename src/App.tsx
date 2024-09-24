@@ -9,6 +9,7 @@ import { ErrorPage } from "@components/layout/ErrorPage";
 import { AppPage } from "@components/layout/AppPage";
 
 import { GlobalStyles } from "./styles/global";
+import AppContextProvider from "./context/AppContext";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,8 +23,10 @@ const router = createBrowserRouter(
 function App() {
   return (
     <>
-      <GlobalStyles />
-      <RouterProvider router={router} />
+      <AppContextProvider>
+        <GlobalStyles />
+        <RouterProvider router={router} />
+      </AppContextProvider>
     </>
   );
 }
