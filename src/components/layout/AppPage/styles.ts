@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+interface IStyledCollapseIcon {
+  $collapse: boolean;
+}
+
 const StyledAppPage = styled.div`
   display: inherit;
   box-sizing: border-box;
 `;
-
 
 const StyledContainer = styled.div`
   display: inherit;
@@ -14,7 +17,6 @@ const StyledContainer = styled.div`
   p {
     white-space: nowrap;
   }
-
 `;
 
 const StyledMain = styled.main`
@@ -36,10 +38,26 @@ const StyledLogo = styled.img`
   max-width: 100px;
 `;
 
+const StyledCollapseIcon = styled.div<IStyledCollapseIcon>`
+  display: flex;
+  transition: all 500ms ease;
+  position: absolute;
+  top: 13.5px;
+  transform: ${({ $collapse }) =>
+    $collapse ? "rotate(-90deg)" : "rotate(90deg)"};
+  left: 160px;
+`;
+
+const StyledCollapse = styled.div`
+  position: absolute;
+`;
+
 export {
   StyledAppPage,
   StyledContainer,
   StyledContentImg,
   StyledLogo,
   StyledMain,
+  StyledCollapseIcon,
+  StyledCollapse,
 };
