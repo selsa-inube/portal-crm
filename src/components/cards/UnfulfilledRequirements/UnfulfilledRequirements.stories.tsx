@@ -6,6 +6,14 @@ type Story = StoryObj<typeof UnfulfilledRequirements>;
 const meta: Meta<typeof UnfulfilledRequirements> = {
   component: UnfulfilledRequirements,
   title: "components/alerts/UnfulfilledRequirements",
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "card providing information on the unfulfilled requirements in an application",
+      },
+    },
+  },
   argTypes: {
     title: {
       control: {
