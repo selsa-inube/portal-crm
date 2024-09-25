@@ -4,7 +4,7 @@ import { Icon } from "@inubekit/icon";
 import { Stack } from "@inubekit/stack";
 import { Text } from "@inubekit/text";
 
-import { Fieldset } from "@src/components/data/Fieldset";
+import { Fieldset } from "@components/data/Fieldset";
 
 interface IUnfulfilledRequirementsProps {
   title: string;
