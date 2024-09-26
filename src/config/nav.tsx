@@ -1,5 +1,29 @@
 import { INav } from "@components/layout/AppPage/types";
-import { MdOutlineStart } from "react-icons/md";
+import { MdOutlineStart, MdVpnKey, MdOutlineDescription } from "react-icons/md";
+
+const appsConfig = [
+  {
+    id: 1,
+    label: "Crédito",
+
+    icon: <MdVpnKey />,
+    crumbs: [
+      {
+        path: "/",
+        label: "Inicio",
+        id: "/",
+        isActive: false,
+      },
+      {
+        path: "/credit",
+        label: "Crédito",
+        id: "/credit",
+        isActive: true,
+      },
+    ],
+    url: "/credit",
+  },
+];
 
 const nav: INav = {
   title: "MENU",
@@ -13,9 +37,15 @@ const nav: INav = {
           icon: <MdOutlineStart />,
           path: "/",
         },
+        Credit: {
+          id: "credit",
+          label: "Crédito",
+          icon: <MdOutlineDescription />,
+          path: "/credit",
+        },
       },
     },
   },
 };
 
-export { nav };
+export { appsConfig, nav };
