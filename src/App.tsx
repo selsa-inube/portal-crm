@@ -1,3 +1,4 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import {
   Route,
   RouterProvider,
@@ -9,6 +10,7 @@ import { ErrorPage } from "@components/layout/ErrorPage";
 import { AppPage } from "@components/layout/AppPage";
 
 import { GlobalStyles } from "./styles/global";
+import { useEffect } from "react";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +22,14 @@ const router = createBrowserRouter(
 );
 
 function App() {
+  const { isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
+
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      loginWithRedirect();
+    }
+  }, [isLoading, isAuthenticated, loginWithRedirect]);
+
   return (
     <>
       <GlobalStyles />
