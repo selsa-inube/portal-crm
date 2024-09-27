@@ -5,11 +5,9 @@ import errorImage from "@assets/images/timeout.png";
 
 import { ErrorPage, ErrorPageProps } from "./index";
 
-
 const meta: Meta<typeof ErrorPage> = {
-  title: "layout/Error",
+  title: "layouts/Error",
   component: ErrorPage,
-
 };
 
 export const Default = (args: ErrorPageProps) => <ErrorPage {...args} />;

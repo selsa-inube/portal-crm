@@ -1,5 +1,5 @@
 import { INav } from "@components/layout/AppPage/types";
-import { MdOutlineStart } from "react-icons/md";
+import { MdOutlineDescription } from "react-icons/md";
 
 const nav: INav = {
   title: "MENU",
@@ -7,11 +7,11 @@ const nav: INav = {
     administrate: {
       name: "",
       links: {
-        startProcess: {
-          id: "privileges",
-          label: "Privilegios",
-          icon: <MdOutlineStart />,
-          path: "/",
+        prospects: {
+          id: "credit",
+          label: "Crédito",
+          icon: <MdOutlineDescription />,
+          path: "/credit/options",
         },
       },
     },

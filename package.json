@@ -13,10 +13,15 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@inubekit/blanket": "^2.23.0",
+    "@inubekit/breadcrumbs": "^2.31.1",
     "@inubekit/button": "^4.5.0",
+    "@inubekit/divider": "^0.15.0",
     "@inubekit/grid": "^2.3.0",
-    "@inubekit/header": "^2.5.0",
+    "@inubekit/header": "^2.39.0",
     "@inubekit/hooks": "^1.2.0",
+    "@inubekit/nav": "^4.35.0",
+    "@inubekit/textfield": "^2.37.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
