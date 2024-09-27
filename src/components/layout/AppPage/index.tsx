@@ -14,6 +14,7 @@ import {
   StyledMain,
 } from "./styles";
 import linparLogo from "@assets/images/linpar.png";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const renderLogo = (imgUrl: string) => {
   return (
@@ -24,6 +25,7 @@ const renderLogo = (imgUrl: string) => {
 };
 
 function AppPage() {
+  const { user } = useAuth0();
   const isTablet = useMediaQuery("(max-width: 944px)");
 
   return (
@@ -33,7 +35,7 @@ function AppPage() {
           portalId="portal"
           navigation={nav}
           logoURL={renderLogo(linparLogo)}
-          userName={"Dora Lucia"}
+          userName={user?.name}
           client={"Selsa"}
         />
         <StyledContainer>
