@@ -23,7 +23,6 @@ function AppMenuCard(props: AppMenuCardProps) {
             appearance="dark"
             cursorHover={true}
             icon={icon}
-            spacing="wide"
             size="24px"
             shape="circle"
           />

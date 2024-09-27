@@ -38,9 +38,7 @@ function AppPage(props: AppPageProps) {
   const { user } = useContext(AppContext);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
-  const collapseMenuRef = useRef<HTMLDivElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
-  const businessUnitChangeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const selectUser = document.querySelector("header div div:nth-child(2)");
@@ -62,14 +60,6 @@ function AppPage(props: AppPageProps) {
         setShowUserMenu(false);
       }
     }
-    if (
-      collapseMenuRef.current &&
-      !collapseMenuRef.current.contains(event.target as Node) &&
-      event.target !== collapseMenuRef.current &&
-      businessUnitChangeRef.current &&
-      !businessUnitChangeRef.current.contains(event.target as Node)
-    ) {
-    }
   };
 
   const handleToggleLogoutModal = () => {
@@ -90,6 +80,13 @@ function AppPage(props: AppPageProps) {
   ];
 
   const smallScreen = useMediaQuery("(max-width: 849px)");
+
+  let columns;
+  if (smallScreen) {
+    columns = "1fr";
+  } else {
+    columns = showNav ? "auto 1fr" : "1fr";
+  }
 
   return (
     <StyledAppPage>
@@ -114,10 +111,7 @@ function AppPage(props: AppPageProps) {
               handleShowBlanket={handleToggleLogoutModal}
             />
           )}
-          <Grid
-            templateColumns={smallScreen ? "1fr" : showNav ? "auto 1fr" : "1fr"}
-            alignContent="unset"
-          >
+          <Grid templateColumns={columns} alignContent="unset">
             {showNav && !smallScreen && (
               <StyledContainerNav>
                 <Nav

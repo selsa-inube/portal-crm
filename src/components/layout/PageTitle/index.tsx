@@ -27,7 +27,6 @@ function PageTitle(props: PageTitleProps) {
               appearance="dark"
               cursorHover={true}
               icon={icon}
-              spacing="none"
               size="20px"
             />
           ) : (
@@ -35,7 +34,6 @@ function PageTitle(props: PageTitleProps) {
               appearance="dark"
               cursorHover={true}
               icon={<MdArrowBack />}
-              spacing="none"
               size="20px"
               onClick={() =>
                 navigatePage ? navigate(navigatePage) : navigate(-1)

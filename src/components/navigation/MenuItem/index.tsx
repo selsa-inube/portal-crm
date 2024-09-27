@@ -39,7 +39,6 @@ function MenuItem(props: MenuItemProps) {
         {iconBefore && (
           <Icon
             icon={iconBefore}
-            spacing="none"
             size="24px"
             appearance="dark"
             disabled={isDisabled}
@@ -57,7 +56,6 @@ function MenuItem(props: MenuItemProps) {
       {iconAfter && (
         <Icon
           icon={iconAfter}
-          spacing="none"
           size="24px"
           appearance="dark"
           disabled={isDisabled}
