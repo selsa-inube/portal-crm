@@ -1,3 +1,4 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import { Outlet } from "react-router-dom";
 import { Grid } from "@inubekit/grid";
 import { Header } from "@inubekit/header";
@@ -14,7 +15,6 @@ import {
   StyledMain,
 } from "./styles";
 import linparLogo from "@assets/images/linpar.png";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const renderLogo = (imgUrl: string) => {
   return (
