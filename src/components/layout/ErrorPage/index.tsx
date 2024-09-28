@@ -34,7 +34,7 @@ function ErrorPage(props: ErrorPageProps) {
 
   return (
     <Stack
-      padding={matches["(max-width: 600px)"] ? "s400" : "s1000"}
+      margin={matches["(max-width: 600px)"] ? "40px" : "100px 100px 0px"}
       gap={matches["(max-width: 1000px)"] ? "64px" : "120px"}
       direction="column"
     >
@@ -45,7 +45,7 @@ function ErrorPage(props: ErrorPageProps) {
           matches["(max-width: 600px)"] ? "auto" : "repeat(2, 1fr)"
         }
         alignItems="center"
-        gap={matches["(max-width: 600px)"] ? "s800" : "120px"}
+        gap={matches["(max-width: 600px)"] ? "64px" : "120px"}
       >
         <Stack gap="24px" direction="column">
           <Stack gap="16px" direction="column">
@@ -54,7 +54,13 @@ function ErrorPage(props: ErrorPageProps) {
               {description}
             </Text>
           </Stack>
-          <Button iconBefore={<MdChevronLeft size={18} />}>Exit</Button>
+          <Button
+            iconBefore={<MdChevronLeft size={18} />}
+            type="link"
+            path="/home"
+          >
+            Exit
+          </Button>
         </Stack>
         <StyledErrorImage src={image} alt={imageAlt} />
       </Grid>
