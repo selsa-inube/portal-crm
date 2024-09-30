@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Label } from "@inubekit/label";
+import { Divider } from "@inubekit/divider";
 import { Stack } from "@inubekit/stack";
 import { Text } from "@inubekit/text";
 import { Toggle } from "@inubekit/toggle";
 
 import { Fieldset } from "@components/data/Fieldset";
+import { RadioInput } from "@components/inputs/RadioInput";
 import { StyledContainer } from "./styles";
-import { Divider } from "@inubekit/divider";
 
 interface IData {
   credits: {
@@ -27,10 +27,14 @@ export const NewPropspect = (props: INewPropspect) => {
 
   const [isSelected] = useState(false);
 
-  const [onChanged, setOnChanged] = useState(false);
+  const [checkedToggle, setCheckedToggle] = useState(false);
+
+  const [checkedSpecialFertilisers, setCheckedSpecialFertilisers] =
+    useState(false);
+  //const [checkedSolidarityDebtors, setCheckedSolidarityDebtors] = useState(false);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setOnChanged(e.target.checked);
+    setCheckedToggle(e.target.checked);
   };
 
   return (
@@ -85,24 +89,30 @@ export const NewPropspect = (props: INewPropspect) => {
       </StyledContainer>
       <Stack>
         <Toggle
-          checked={onChanged}
+          checked={checkedToggle}
           onChange={handleOnChange}
           name="credit-suggestion"
+          children="Prefiere que el sistema se lo sugiera."
         />
-        <Label htmlFor="credit-suggestion">
-          Prefiere que el sistema se lo sugiera.
-        </Label>
       </Stack>
       <Stack>
         <Stack>
-          <Label>
+          <Text>
             ¿Quiere programar abonos especiales a capital para disminuir su pago
             ordinario o recortar plazo?
-          </Label>
+          </Text>
+          <RadioInput
+            id="special-fertilisers"
+            name="special-fertilisers"
+            checked={checkedSpecialFertilisers}
+            onChange={() =>
+              setCheckedSpecialFertilisers(!checkedSpecialFertilisers)
+            }
+          />
         </Stack>
         <Divider />
         <Stack>
-          <Label>¿Quiere agregar deudores solidarios?</Label>
+          <Text>¿Quiere agregar deudores solidarios?</Text>
         </Stack>
       </Stack>
     </Stack>
