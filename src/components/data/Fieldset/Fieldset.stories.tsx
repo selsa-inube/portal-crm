@@ -10,6 +10,14 @@ type Story = StoryObj<typeof Fieldset>;
 const meta: Meta<typeof Fieldset> = {
   component: Fieldset,
   title: "components/data/Fieldset",
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The Fieldset component is a flexible and stylish container that organises and groups related elements in a user interface.",
+      },
+    },
+  },
   argTypes: {
     title: {
       control: {
