@@ -101,7 +101,7 @@ export function PositionsUI(props: IPositionsProps) {
                       <Td
                         key={`e-${entry[title.id]}`}
                         align={title.id === "Acciones" ? "center" : "left"}
-                        type={entry.action ? "custom" : "text"}
+                        type={title.id === "Acciones" ? "custom" : "text"}
                         appearance={rowIndex % 2 === 0 ? "dark" : "light"}
                       >
                         {title.id === "Acciones" ? (
