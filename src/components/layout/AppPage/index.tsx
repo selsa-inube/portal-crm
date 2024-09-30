@@ -1,11 +1,11 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import { Outlet } from "react-router-dom";
 import { Grid } from "@inubekit/grid";
 import { Header } from "@inubekit/header";
 import { Nav } from "@inubekit/nav";
 import { useMediaQuery } from "@inubekit/hooks";
 
-import { nav } from "@src/config/nav";
-
+import { nav } from "@config/nav";
 import {
   StyledAppPage,
   StyledContainer,
@@ -24,6 +24,7 @@ const renderLogo = (imgUrl: string) => {
 };
 
 function AppPage() {
+  const { user } = useAuth0();
   const isTablet = useMediaQuery("(max-width: 944px)");
 
   return (
@@ -33,7 +34,7 @@ function AppPage() {
           portalId="portal"
           navigation={nav}
           logoURL={renderLogo(linparLogo)}
-          userName={"Dora Lucia"}
+          userName={user?.name}
           client={"Selsa"}
         />
         <StyledContainer>
