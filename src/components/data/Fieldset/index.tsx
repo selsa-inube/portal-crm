@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { MdAdd } from "react-icons/md";
 import { Text } from "@inubekit/text";
 import { Stack } from "@inubekit/stack";
@@ -20,6 +21,7 @@ interface IFieldsetProps {
   activeButton?: IPtionsButton;
   hasTable?: boolean;
   hasOverflow?: boolean;
+  isClickable?: boolean;
 }
 
 export const Fieldset = (props: IFieldsetProps) => {
@@ -32,7 +34,17 @@ export const Fieldset = (props: IFieldsetProps) => {
     activeButton,
     isMobile,
     hasOverflow,
+    isClickable = false,
   } = props;
+
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleOnClick = () => {
+    if (isClickable) {
+      setIsSelected(!isSelected);
+    }
+    return;
+  };
 
   return (
     <Stack
@@ -72,6 +84,8 @@ export const Fieldset = (props: IFieldsetProps) => {
         $aspectRatio={aspectRatio}
         $isMobile={isMobile}
         $hasOverflow={hasOverflow}
+        onClick={handleOnClick}
+        $isSelected={isSelected}
       >
         {children}
       </StyledContainerFieldset>
