@@ -8,8 +8,8 @@ import { Fieldset } from "@components/data/Fieldset";
 import { RadioInput } from "@components/inputs/RadioInput";
 
 import type { IdataForm } from "./types";
-import { StyledContainer } from "./styles";
 import { configSecondStepNewProspescto } from "./config";
+import { StyledContainer } from "./styles";
 
 interface IData {
   credits: {
@@ -26,7 +26,7 @@ interface INewPropspect {
   onSubmit: (data: IdataForm) => void;
 }
 
-export const NewPropspect = (props: INewPropspect) => {
+export const SecondStepNewPropspect = (props: INewPropspect) => {
   const { data, onSubmit } = props;
 
   const formik = useFormik({
