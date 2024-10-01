@@ -6,6 +6,7 @@ export const StyledContainer = styled.div`
   border-radius: 8px;
   padding: 16px;
   gap: 16px;
-  border-color: ${({ theme }) =>
-    theme?.divider?.stroke?.color || inube.divider.stroke.color};
+  border: 2px solid
+    ${({ theme }) =>
+      theme?.divider?.stroke?.color || inube.divider.stroke.color};
 `;
