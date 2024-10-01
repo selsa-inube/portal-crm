@@ -6,7 +6,11 @@ import { Button } from "@inubekit/button";
 
 import { PageTitle } from "@components/PageTitle";
 
-import { createPositionConfig, buttonText } from "./config/addPosition.config";
+import {
+  createPositionConfig,
+  buttonText,
+  stepsAddPosition,
+} from "./config/addPosition.config";
 import {
   IFormAddPosition,
   IFormAddPositionRef,
@@ -16,6 +20,7 @@ import {
 
 import { StyledContainerAssisted } from "./styles";
 import { IMessageState } from "../../types/forms.types";
+import { RequirementsNotMet } from "./steps/requirementsNotMet";
 
 interface AddPositionUIProps {
   currentStep: number;
@@ -47,22 +52,11 @@ export function AddPositionUI(props: AddPositionUIProps) {
   const disabled = !isCurrentFormValid;
 
   return (
-    <Stack
-      direction="column"
-      padding={
-        smallScreen
-          ? "16px"
-          : "32px 64px"
-      }
-    >
+    <Stack direction="column" padding={smallScreen ? "16px" : "32px 64px"}>
       <Stack gap="48px" direction="column">
         <Stack gap="32px" direction="column">
           <Breadcrumbs crumbs={createPositionConfig[0].crumbs} />
-          <Stack
-            justifyContent="space-between"
-            alignItems="center"
-            gap="50px"
-          >
+          <Stack justifyContent="space-between" alignItems="center" gap="50px">
             <PageTitle
               title={createPositionConfig[0].title}
               description={createPositionConfig[0].description}
@@ -81,8 +75,17 @@ export function AddPositionUI(props: AddPositionUIProps) {
             />
           </StyledContainerAssisted>
         </>
+        {currentStep === stepsAddPosition.generalInformation.id && (
+          <RequirementsNotMet />
+        )}
         <Stack justifyContent="end" gap="20px">
-          <Button variant="outlined" appearance="gray" onClick={handlePreviousStep}>{buttonText.back}</Button>
+          <Button
+            variant="outlined"
+            appearance="gray"
+            onClick={handlePreviousStep}
+          >
+            {buttonText.back}
+          </Button>
           <Button onClick={handleNextStep}>{buttonText.next}</Button>
         </Stack>
       </Stack>
