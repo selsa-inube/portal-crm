@@ -23,11 +23,12 @@ interface IData {
 
 interface INewPropspect {
   data: IData;
+  isMobile?: boolean;
   onSubmit: (data: IdataForm) => void;
 }
 
 export const SecondStepNewPropspect = (props: INewPropspect) => {
-  const { data, onSubmit } = props;
+  const { data, isMobile = false, onSubmit } = props;
 
   const formik = useFormik({
     initialValues: {
@@ -61,14 +62,14 @@ export const SecondStepNewPropspect = (props: INewPropspect) => {
   return (
     <form onSubmit={formik.handleSubmit}>
       <Stack direction="column" gap="16px">
-        <StyledContainer>
+        <StyledContainer $isMobile={isMobile}>
           {data.credits.map(
             (credit) =>
               credit.userEligible && (
                 <Fieldset
                   key={credit.type}
                   title={credit.type}
-                  isMobile={false}
+                  isMobile
                   isClickable
                   isSelected={formik.values.selectedCredit === credit.type}
                   onClick={() => handleSelectCredit(credit.type)}
