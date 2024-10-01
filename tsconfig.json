@@ -10,7 +10,7 @@
       "@src/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@utils/*": ["src/mocks/utils/*"],
+      "@utils/*": ["src/utils/*"],
       "@types/*": ["src/types/*"],
       "@mocks/*": ["src/mocks/*"],
       "@context/*": ["src/context/*"],

@@ -17,15 +17,17 @@
     "@inubekit/breadcrumbs": "^2.31.1",
     "@inubekit/button": "^4.5.0",
     "@inubekit/flag": "^7.3.0",
+    "@inubekit/divider": "^0.14.0",
     "@inubekit/grid": "^2.3.0",
     "@inubekit/header": "^2.5.0",
     "@inubekit/hooks": "^1.2.0",
     "@inubekit/icon": "^2.16.0",
-    "@inubekit/stack": "^3.8.0",
     "@inubekit/table": "^5.30.0",
     "@inubekit/textfield": "^2.36.0",
     "formik": "^2.4.6",
     "localforage": "^1.10.0",
+    "@inubekit/stack": "^3.8.0",
+    "@inubekit/text": "^2.15.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
@@ -66,7 +68,7 @@
     "storybook": "^8.2.5",
     "typescript": "^5.2.2",
     "typescript-eslint": "^7.16.1",
-    "vite": "^5.3.4",
+    "vite": "^5.4.6",
     "vite-tsconfig-paths": "^4.3.2"
   }
 }

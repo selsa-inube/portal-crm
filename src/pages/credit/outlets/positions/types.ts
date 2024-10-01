@@ -1,6 +1,5 @@
 export interface IActions {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any;
+  [key: string]: React.ReactNode;
 }
 
 export interface IAction {
@@ -10,8 +9,7 @@ export interface IAction {
 }
 
 export interface IPosition {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any;
+  [key: string]: React.ReactNode;
   Codigo: string;
   Solicitante: string;
   "Fecha-solicitud": string;
