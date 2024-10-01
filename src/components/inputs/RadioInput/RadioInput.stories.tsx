@@ -27,6 +27,18 @@ const meta: Meta<typeof RadioInput> = {
       },
       description: "name of the component",
     },
+    value: {
+      control: {
+        type: "text",
+      },
+      description: "value of the component",
+    },
+    label: {
+      control: {
+        type: "text",
+      },
+      description: "label of the component",
+    },
     checked: {
       control: {
         type: "text",
@@ -45,7 +57,8 @@ export const Default: Story = {
     name: "radio",
     checked: true,
     label: "Radio",
-    onChange: (selected: boolean) => console.log(selected),
+    value: "valor",
+    onChange: (value: string) => console.log(value),
   },
 };
 
