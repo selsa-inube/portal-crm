@@ -31,14 +31,20 @@ export const SecondStepNewPropspect = (props: INewPropspect) => {
 
   const formik = useFormik({
     initialValues: {
+      selectedCredit: "",
       specialFertilisers: "",
       jointDebtors: "",
       creditSuggestions: false,
     },
     onSubmit: (values) => {
+      console.log("values", values);
       onSubmit(values);
     },
   });
+
+  const handleSelectCredit = (creditType: string) => {
+    formik.setFieldValue("selectedCredit", creditType);
+  };
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     formik.setFieldValue("creditSuggestions", e.target.checked);
@@ -64,6 +70,8 @@ export const SecondStepNewPropspect = (props: INewPropspect) => {
                   title={credit.type}
                   isMobile={false}
                   isClickable
+                  isSelected={formik.values.selectedCredit === credit.type}
+                  onClick={() => handleSelectCredit(credit.type)}
                 >
                   <Stack direction="column" gap="16px" padding="16px">
                     <Stack justifyContent="space-between">
