@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { MdAdd } from "react-icons/md";
 import { Text } from "@inubekit/text";
 import { Stack } from "@inubekit/stack";
@@ -13,38 +12,33 @@ interface IPtionsButton {
 
 interface IFieldsetProps {
   title: string;
-  children: JSX.Element | JSX.Element[];
-  isMobile: boolean;
+  descriptionTitle?: string;
   aspectRatio?: string;
   heightFieldset?: string;
-  descriptionTitle?: string;
+  children: JSX.Element | JSX.Element[];
   activeButton?: IPtionsButton;
+  isMobile: boolean;
   hasTable?: boolean;
   hasOverflow?: boolean;
   isClickable?: boolean;
+  isSelected?: boolean;
+  onClick?: () => void;
 }
 
 export const Fieldset = (props: IFieldsetProps) => {
   const {
-    children,
     title,
-    heightFieldset = "auto",
-    aspectRatio,
     descriptionTitle,
+    aspectRatio,
+    heightFieldset = "auto",
+    children,
     activeButton,
     isMobile,
     hasOverflow,
     isClickable = false,
+    isSelected = false,
+    onClick,
   } = props;
-
-  const [isSelected, setIsSelected] = useState(false);
-
-  const handleOnClick = () => {
-    if (isClickable) {
-      setIsSelected(!isSelected);
-    }
-    return;
-  };
 
   return (
     <Stack
@@ -84,7 +78,7 @@ export const Fieldset = (props: IFieldsetProps) => {
         $aspectRatio={aspectRatio}
         $isMobile={isMobile}
         $hasOverflow={hasOverflow}
-        onClick={handleOnClick}
+        onClick={isClickable ? onClick : undefined}
         $isSelected={isSelected}
       >
         {children}
