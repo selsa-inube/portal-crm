@@ -9,6 +9,7 @@ import { RadioInput } from "@components/inputs/RadioInput";
 
 import type { IdataForm } from "./types";
 import { StyledContainer } from "./styles";
+import { configSecondStepNewProspescto } from "./config";
 
 interface IData {
   credits: {
@@ -67,7 +68,7 @@ export const NewPropspect = (props: INewPropspect) => {
                   <Stack direction="column" gap="16px" padding="16px">
                     <Stack justifyContent="space-between">
                       <Text appearance="dark" type="label" weight="bold">
-                        Monto máx.
+                        {configSecondStepNewProspescto.montoMax}
                       </Text>
                       <Text appearance="gray" size="medium">
                         <Text
@@ -91,7 +92,7 @@ export const NewPropspect = (props: INewPropspect) => {
                     </Stack>
                     <Stack justifyContent="space-between">
                       <Text appearance="dark" type="label" weight="bold">
-                        Plazo máx.
+                        {configSecondStepNewProspescto.plazoMax}
                       </Text>
                       <Text appearance="gray" size="medium">
                         {credit.maxTerm}
@@ -114,10 +115,7 @@ export const NewPropspect = (props: INewPropspect) => {
         <StyledContainer>
           <Stack direction="column" gap="16px">
             <Stack direction="column" gap="16px">
-              <Text>
-                ¿Quiere programar abonos especiales a capital para disminuir su
-                pago ordinario o recortar plazo?
-              </Text>
+              <Text>{configSecondStepNewProspescto.specialFertilisers}</Text>
               <RadioInput
                 id="specialFertilisers"
                 name="specialFertilisers"
@@ -141,7 +139,7 @@ export const NewPropspect = (props: INewPropspect) => {
             </Stack>
             <Divider dashed />
             <Stack direction="column" gap="16px">
-              <Text>¿Quiere agregar deudores solidarios?</Text>
+              <Text>{configSecondStepNewProspescto.jointDebtors}</Text>
               <RadioInput
                 id="jointDebtors"
                 name="jointDebtors"

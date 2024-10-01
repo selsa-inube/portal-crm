@@ -1,4 +1,4 @@
-export const mockCreditLine = {
+/*export const mockCreditLine = {
   credits: [
     {
       type: "Vacation Credit",
@@ -29,4 +29,14 @@ export const mockCreditLine = {
       userEligible: true,
     },
   ],
+}; */
+
+export const configSecondStepNewProspescto = {
+  montoMax: " Monto máx.",
+  tasaMax: "Tasa máx.",
+  plazoMax: "Plazo máx.",
+  specialFertilisers:
+    "¿Quiere programar abonos especiales a capital para disminuir su pago ordinario o recortar plazo?",
+  jointDebtors:
+    "¿Quiere programar abonos especiales a capital para disminuir su pago ordinario o recortar plazo?",
 };
