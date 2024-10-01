@@ -1,11 +1,7 @@
 import { useState, useMemo } from "react";
 import { IPosition } from "../../types";
 
-const usePagination = (
-  searchPosition: string,
-  data: IPosition[],
-  pagerecord: number
-) => {
+const usePagination = (data: IPosition[], pagerecord: number) => {
   const pageLength = pagerecord;
   const [currentPage, setCurrentPage] = useState(0);
   const totalRecords = data.length;
@@ -20,21 +16,12 @@ const usePagination = (
   const firstEntryInPage = currentPage * pageLength;
   const lastEntryInPage = Math.min(firstEntryInPage + pageLength, totalRecords);
 
-  const filteredData = useMemo(() => {
-    return data.filter((row) => {
-      return Object.values(row).some((value) =>
-        value.toString().toLowerCase().includes(searchPosition.toLowerCase())
-      );
-    });
-  }, [data, searchPosition]);
-
   const paginatedData = useMemo(() => {
-    return filteredData.slice(firstEntryInPage, lastEntryInPage);
-  }, [filteredData, firstEntryInPage, lastEntryInPage]);
+    return data.slice(firstEntryInPage, lastEntryInPage);
+  }, [data, firstEntryInPage, lastEntryInPage]);
 
   return {
     currentPage,
-    filteredData,
     totalPages,
     handleStartPage,
     handlePrevPage,

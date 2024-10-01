@@ -5,9 +5,7 @@ import { PositionsUI } from "./interface";
 import { IPosition } from "./types";
 
 export function Positions() {
-  const [searchPosition, setSearchPosition] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
-
+  const [loading, setLoading] = useState(false);
   const [positions, setPositions] = useState<IPosition[]>([]);
 
   useEffect(() => {
@@ -26,15 +24,5 @@ export function Positions() {
       });
   }, []);
 
-  const handleSearchPositions = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchPosition(e.target.value);
-  };
-  return (
-    <PositionsUI
-      handleSearchPositions={handleSearchPositions}
-      searchPosition={searchPosition}
-      loading={loading}
-      data={positions}
-    />
-  );
+  return <PositionsUI loading={loading} data={positions} pageRecord={10} />;
 }

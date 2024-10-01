@@ -26,17 +26,14 @@ import { useState } from "react";
 import { DetailActions } from "./components/DetailActions";
 import { Details } from "./components/Detail";
 
-const pagerecord = 10;
-
 interface IPositionsProps {
-  handleSearchPositions: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  searchPosition: string;
   data: IPosition[];
   loading: boolean;
+  pageRecord?: number;
 }
 
 export function PositionsUI(props: IPositionsProps) {
-  const { searchPosition, loading, data } = props;
+  const { loading, data, pageRecord = 10 } = props;
   const [detailAction, setDetailAction] = useState(false);
 
   const smallScreen = useMediaQuery("(max-width:880px)");
@@ -46,7 +43,6 @@ export function PositionsUI(props: IPositionsProps) {
   );
 
   const {
-    filteredData,
     handleStartPage,
     handlePrevPage,
     handleNextPage,
@@ -54,7 +50,7 @@ export function PositionsUI(props: IPositionsProps) {
     firstEntryInPage,
     lastEntryInPage,
     paginatedData,
-  } = usePagination(searchPosition, positionsData, pagerecord);
+  } = usePagination(positionsData, pageRecord);
 
   return (
     <Stack
@@ -124,7 +120,7 @@ export function PositionsUI(props: IPositionsProps) {
                     <Pagination
                       firstEntryInPage={firstEntryInPage}
                       lastEntryInPage={lastEntryInPage}
-                      totalRecords={filteredData.length}
+                      totalRecords={positionsData.length}
                       handleStartPage={handleStartPage}
                       handlePrevPage={handlePrevPage}
                       handleNextPage={handleNextPage}
