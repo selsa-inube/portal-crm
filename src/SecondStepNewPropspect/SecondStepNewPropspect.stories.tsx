@@ -54,6 +54,7 @@ export const Default: Story = {
         },
       ],
     },
+    isMobile: true,
     onSubmit: (data) => console.log(data),
   },
 };
