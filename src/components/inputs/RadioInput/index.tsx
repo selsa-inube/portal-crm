@@ -2,18 +2,20 @@ import { Label } from "@inubekit/label";
 import { Stack } from "@inubekit/stack";
 
 import { Styledinput } from "./styled";
+import React from "react";
 
 interface IRadioInputProps {
   id: string;
   name: string;
   checked: boolean;
+  value: string;
   label?: string;
   disabled?: boolean;
-  onChange: (selected: boolean) => void;
+  onChange: (value: string) => void;
 }
 
 export const RadioInput = (props: IRadioInputProps) => {
-  const { id, name, label, checked, disabled = false, onChange } = props;
+  const { id, name, value, label, checked, disabled = false, onChange } = props;
 
   return (
     <Stack gap="4px">
@@ -21,10 +23,11 @@ export const RadioInput = (props: IRadioInputProps) => {
         id={id}
         name={name}
         type="radio"
+        value={value}
         checked={checked}
         disabled={disabled}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          onChange(e.target.checked)
+          onChange(e.target.value)
         }
       />
 
