@@ -37,6 +37,5 @@ export const configSecondStepNewProspescto = {
   plazoMax: "Plazo máx.",
   specialFertilisers:
     "¿Quiere programar abonos especiales a capital para disminuir su pago ordinario o recortar plazo?",
-  jointDebtors:
-    "¿Quiere programar abonos especiales a capital para disminuir su pago ordinario o recortar plazo?",
+  jointDebtors: "¿Quiere agregar deudores solidarios?",
 };
