@@ -14,6 +14,7 @@ import {
   StyledMain,
 } from "./styles";
 import linparLogo from "@assets/images/linpar.png";
+import { handlelogout } from "./config";
 
 const renderLogo = (imgUrl: string) => {
   return (
@@ -24,8 +25,10 @@ const renderLogo = (imgUrl: string) => {
 };
 
 function AppPage() {
-  const { user } = useAuth0();
+  const { user, logout } = useAuth0();
   const isTablet = useMediaQuery("(max-width: 944px)");
+
+  const actionNAv = handlelogout(logout);
 
   return (
     <StyledAppPage>
@@ -42,13 +45,7 @@ function AppPage() {
             templateColumns={!isTablet ? "auto 1fr" : "1fr"}
             alignContent="unset"
           >
-            {!isTablet && (
-              <Nav
-                navigation={nav}
-                logoutPath="/logout"
-                logoutTitle="Cerrar sesión"
-              />
-            )}
+            {!isTablet && <Nav navigation={nav} actions={actionNAv} />}
             <StyledMain>
               <Outlet />
             </StyledMain>
