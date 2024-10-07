@@ -3,15 +3,16 @@ import { IGeneralInformationEntry } from "../components/GeneralInformationForm";
 import React from "react";
 
 export const titleButtonTextAssited = {
-  before: "Anterior",
-  after: "Siguiente",
-  finish: "Enviar",
+  goBackText: "Anterior",
+  goNextText: "Siguiente",
+  submitText: "Enviar",
 };
 
 export interface IStep {
   id: number;
-  label: string;
   description: string;
+  number?: number;
+  name?: string;
 }
 
 export interface IOptionInitialiceEntry {

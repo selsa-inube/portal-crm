@@ -8,7 +8,6 @@ import { PageTitle } from "@components/PageTitle";
 
 import {
   createPositionConfig,
-  buttonText,
   stepsAddPosition,
 } from "./config/addPosition.config";
 import {
@@ -25,23 +24,28 @@ import { RequirementsNotMet } from "./steps/requirementsNotMet";
 interface AddPositionUIProps {
   currentStep: number;
   steps: IStep[];
-  showModal: boolean;
   isCurrentFormValid: boolean;
   dataAddPositionLinixForm: IFormAddPosition;
   formReferences: IFormAddPositionRef;
-  loading: boolean;
   message: IMessageState;
   setIsCurrentFormValid: React.Dispatch<React.SetStateAction<boolean>>;
   handleNextStep: () => void;
   handlePreviousStep: () => void;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
-  handleToggleModal: () => void;
   handleCloseSectionMessage: () => void;
+  handleSubmitClick: () => void;
+  currentStepsNumber?: {
+    id: number;
+    number: number;
+    name: string;
+    description: string;
+  };
 }
 
 export function AddPositionUI(props: AddPositionUIProps) {
   const {
-    currentStep,
+    currentStepsNumber,
+    handleSubmitClick,
     steps,
     isCurrentFormValid,
     handleNextStep,
@@ -67,26 +71,33 @@ export function AddPositionUI(props: AddPositionUIProps) {
         <>
           <StyledContainerAssisted $cursorDisabled={disabled}>
             <Assisted
-              steps={steps}
-              currentStepId={currentStep}
-              handlePrev={handlePreviousStep}
-              handleNext={handleNextStep}
-              titleButtonText={titleButtonTextAssited}
+              step={currentStepsNumber!}
+              totalSteps={steps.length}
+              onBackClick={handlePreviousStep}
+              onNextClick={handleNextStep}
+              controls={titleButtonTextAssited}
+              onSubmitClick={handleSubmitClick}
             />
           </StyledContainerAssisted>
         </>
-        {currentStep === stepsAddPosition.generalInformation.id && (
-          <RequirementsNotMet />
-        )}
+        {currentStepsNumber &&
+          currentStepsNumber.id === stepsAddPosition.generalInformation.id && (
+            <RequirementsNotMet />
+          )}
         <Stack justifyContent="end" gap="20px">
           <Button
             variant="outlined"
             appearance="gray"
             onClick={handlePreviousStep}
+            disabled={currentStepsNumber === steps[0]}
           >
-            {buttonText.back}
+            {titleButtonTextAssited.goBackText}
           </Button>
-          <Button onClick={handleNextStep}>{buttonText.next}</Button>
+          <Button onClick={handleNextStep}>
+            {currentStepsNumber === steps[7]
+              ? titleButtonTextAssited.submitText
+              : titleButtonTextAssited.goNextText}
+          </Button>
         </Stack>
       </Stack>
     </Stack>

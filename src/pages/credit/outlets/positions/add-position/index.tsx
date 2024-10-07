@@ -15,16 +15,17 @@ export function AddPosition() {
   const [currentStep, setCurrentStep] = useState<number>(
     stepsAddPosition.generalInformation.id
   );
-
-  const steps = Object.values(stepsAddPosition);
-  const [loading, setLoading] = useState(false);
   const [isCurrentFormValid, setIsCurrentFormValid] = useState(true);
-  const [showModal, setShowModal] = useState(false);
   const [message, setMessage] = useState<IMessageState>({
     visible: false,
   });
 
+  const steps = Object.values(stepsAddPosition);
   const navigate = useNavigate();
+
+  const currentStepsNumber = steps.find(
+    (step: { number: number }) => step.number === currentStep
+  );
 
   const [dataAddPositionLinixForm, setDataAddPositionLinixForm] =
     useState<IFormAddPosition>({
@@ -72,7 +73,7 @@ export function AddPosition() {
 
   const handleNextStep = () => {
     if (currentStep === steps.length) {
-      handleToggleModal();
+      handleSubmitClick();
     }
     if (currentStep + 1 <= steps.length && isCurrentFormValid) {
       handleStepChange(currentStep + 1);
@@ -83,17 +84,16 @@ export function AddPosition() {
     handleStepChange(currentStep - 1);
   };
 
-  const handleToggleModal = () => {
-    setShowModal(!showModal);
-    setLoading(true);
-  };
-
   const handleCloseSectionMessage = () => {
     setMessage({
       visible: false,
     });
     navigate("/credit/positions");
   };
+
+  function handleSubmitClick() {
+    console.log("Enviar paso: ", currentStep);
+  }
 
   return (
     <AddPositionUI
@@ -102,15 +102,14 @@ export function AddPosition() {
       isCurrentFormValid={isCurrentFormValid}
       dataAddPositionLinixForm={dataAddPositionLinixForm}
       formReferences={formReferences}
-      showModal={showModal}
-      loading={loading}
       message={message}
       setIsCurrentFormValid={setIsCurrentFormValid}
       handleNextStep={handleNextStep}
       handlePreviousStep={handlePreviousStep}
       setCurrentStep={setCurrentStep}
-      handleToggleModal={handleToggleModal}
       handleCloseSectionMessage={handleCloseSectionMessage}
+      currentStepsNumber={currentStepsNumber}
+      handleSubmitClick={handleSubmitClick}
     />
   );
 }

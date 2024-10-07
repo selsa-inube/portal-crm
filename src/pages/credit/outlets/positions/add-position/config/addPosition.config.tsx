@@ -4,42 +4,50 @@ import { Icon } from "@inubekit/icon";
 export const stepsAddPosition = {
   generalInformation: {
     id: 1,
-    label: "Requisitos no cumplidos",
+    number: 1,
+    name: "Requisitos no cumplidos",
     description: "Aspectos que son un impedimento y deben cambiar.",
   },
   destination: {
     id: 2,
-    label: "Destino del dinero",
+    number: 2,
+    name: "Destino del dinero",
     description: "Seleccione el destino del dinero.",
   },
   productSelection: {
     id: 3,
-    label: "Elección del producto",
+    number: 3,
+    name: "Elección del producto",
     description: "Seleccione el destino del dinero.",
   },
   loanConditions: {
     id: 4,
-    label: "Condiciones de préstamo",
+    number: 4,
+    name: "Condiciones de préstamo",
     description: "Condiciones para amortizar el préstamo.",
   },
   requestValue: {
     id: 5,
-    label: "Valor de la solicitud",
+    number: 5,
+    name: "Valor de la solicitud",
     description: "Detalles del valor de la solicitud",
   },
   requestValue6: {
     id: 6,
-    label: "Valor de la solicitud",
+    number: 6,
+    name: "Valor de la solicitud",
     description: "Detalles del valor de la solicitud",
   },
   requestValue7: {
     id: 7,
-    label: "Valor de la solicitud",
+    number: 7,
+    name: "Valor de la solicitud",
     description: "Detalles del valor de la solicitud",
   },
   requestValue8: {
     id: 8,
-    label: "Valor de la solicitud",
+    number: 8,
+    name: "Valor de la solicitud",
     description: "Detalles del valor de la solicitud",
     isVerification: true,
   },
@@ -113,8 +121,3 @@ export const finishAssistedModalConfig = {
   actionText: "Finalizar",
   appearance: "success",
 };
-
-export const buttonText = {
-  next: "Siguiente",
-  back: "Anterior"
-}
