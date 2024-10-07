@@ -6,7 +6,7 @@ import { Button } from "@inubekit/button";
 
 import { PageTitle } from "@components/PageTitle";
 
-import { createPositionConfig, buttonText } from "./config/addPosition.config";
+import { createPositionConfig } from "./config/addPosition.config";
 import {
   IFormAddPosition,
   IFormAddPositionRef,
@@ -20,17 +20,14 @@ import { IMessageState } from "../../types/forms.types";
 interface AddPositionUIProps {
   currentStep: number;
   steps: IStep[];
-  showModal: boolean;
   isCurrentFormValid: boolean;
   dataAddPositionLinixForm: IFormAddPosition;
   formReferences: IFormAddPositionRef;
-  loading: boolean;
   message: IMessageState;
   setIsCurrentFormValid: React.Dispatch<React.SetStateAction<boolean>>;
   handleNextStep: () => void;
   handlePreviousStep: () => void;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
-  handleToggleModal: () => void;
   handleCloseSectionMessage: () => void;
   handleSubmitClick: () => void;
   currentStepsNumber?: {
@@ -84,10 +81,11 @@ export function AddPositionUI(props: AddPositionUIProps) {
             variant="outlined"
             appearance="gray"
             onClick={handlePreviousStep}
+            disabled={currentStepsNumber === steps[0]}
           >
-            {buttonText.back}
+            {titleButtonTextAssited.goBackText}
           </Button>
-          <Button onClick={handleNextStep}>{buttonText.next}</Button>
+          <Button onClick={handleNextStep}>{currentStepsNumber === steps[7] ? titleButtonTextAssited.submitText : titleButtonTextAssited.goNextText}</Button>
         </Stack>
       </Stack>
     </Stack>

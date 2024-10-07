@@ -121,8 +121,3 @@ export const finishAssistedModalConfig = {
   actionText: "Finalizar",
   appearance: "success",
 };
-
-export const buttonText = {
-  next: "Siguiente",
-  back: "Anterior"
-}

@@ -15,9 +15,7 @@ export function AddPosition() {
   const [currentStep, setCurrentStep] = useState<number>(
     stepsAddPosition.generalInformation.id
   );
-  const [loading, setLoading] = useState(false);
   const [isCurrentFormValid, setIsCurrentFormValid] = useState(true);
-  const [showModal, setShowModal] = useState(false);
   const [message, setMessage] = useState<IMessageState>({
     visible: false,
   });
@@ -75,7 +73,7 @@ export function AddPosition() {
 
   const handleNextStep = () => {
     if (currentStep === steps.length) {
-      handleToggleModal();
+      handleSubmitClick();
     }
     if (currentStep + 1 <= steps.length && isCurrentFormValid) {
       handleStepChange(currentStep + 1);
@@ -84,11 +82,6 @@ export function AddPosition() {
 
   const handlePreviousStep = () => {
     handleStepChange(currentStep - 1);
-  };
-
-  const handleToggleModal = () => {
-    setShowModal(!showModal);
-    setLoading(true);
   };
 
   const handleCloseSectionMessage = () => {
@@ -109,14 +102,11 @@ export function AddPosition() {
       isCurrentFormValid={isCurrentFormValid}
       dataAddPositionLinixForm={dataAddPositionLinixForm}
       formReferences={formReferences}
-      showModal={showModal}
-      loading={loading}
       message={message}
       setIsCurrentFormValid={setIsCurrentFormValid}
       handleNextStep={handleNextStep}
       handlePreviousStep={handlePreviousStep}
       setCurrentStep={setCurrentStep}
-      handleToggleModal={handleToggleModal}
       handleCloseSectionMessage={handleCloseSectionMessage}
       currentStepsNumber={currentStepsNumber}
       handleSubmitClick={handleSubmitClick}
