@@ -11,7 +11,7 @@ interface IPtionsButton {
 }
 
 interface IFieldsetProps {
-  title: string;
+  title?: string;
   children: JSX.Element | JSX.Element[];
   isMobile: boolean;
   aspectRatio?: string;
@@ -20,6 +20,7 @@ interface IFieldsetProps {
   activeButton?: IPtionsButton;
   hasTable?: boolean;
   hasOverflow?: boolean;
+  slim?: boolean;
 }
 
 export const Fieldset = (props: IFieldsetProps) => {
@@ -32,6 +33,7 @@ export const Fieldset = (props: IFieldsetProps) => {
     activeButton,
     isMobile,
     hasOverflow,
+    slim,
   } = props;
 
   return (
@@ -72,6 +74,7 @@ export const Fieldset = (props: IFieldsetProps) => {
         $aspectRatio={aspectRatio}
         $isMobile={isMobile}
         $hasOverflow={hasOverflow}
+        $slim={slim}
       >
         {children}
       </StyledContainerFieldset>

@@ -10,6 +10,7 @@ import { addPositionStepsRules } from "./utils";
 import { AddPositionUI } from "./interface";
 
 import { IMessageState } from "../../types/forms.types";
+import { Consulting } from "@src/components/modal/Consulting";
 
 export function AddPosition() {
   const [currentStep, setCurrentStep] = useState<number>(
@@ -19,6 +20,7 @@ export function AddPosition() {
   const [message, setMessage] = useState<IMessageState>({
     visible: false,
   });
+  const [showConsultingModal, setShowConsultingModal] = useState(false);
 
   const steps = Object.values(stepsAddPosition);
   const navigate = useNavigate();
@@ -75,6 +77,9 @@ export function AddPosition() {
     if (currentStep === steps.length) {
       handleSubmitClick();
     }
+    if (currentStep === stepsAddPosition.loanConditions.id) {
+      showConsultingForFiveSeconds();
+    }
     if (currentStep + 1 <= steps.length && isCurrentFormValid) {
       handleStepChange(currentStep + 1);
     }
@@ -95,7 +100,15 @@ export function AddPosition() {
     console.log("Enviar paso: ", currentStep);
   }
 
+  const showConsultingForFiveSeconds = () => {
+    setShowConsultingModal(true);
+    setTimeout(() => {
+      setShowConsultingModal(false);
+    }, 2000);
+  };
+
   return (
+    <>
     <AddPositionUI
       steps={steps}
       currentStep={currentStep}
@@ -111,5 +124,7 @@ export function AddPosition() {
       currentStepsNumber={currentStepsNumber}
       handleSubmitClick={handleSubmitClick}
     />
+    {showConsultingModal && <Consulting/>}
+    </>
   );
 }

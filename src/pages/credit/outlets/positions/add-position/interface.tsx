@@ -5,8 +5,9 @@ import { useMediaQuery } from "@inubekit/hooks";
 import { Button } from "@inubekit/button";
 
 import { PageTitle } from "@components/PageTitle";
+import { LoanCondition } from "@components/inputs/LoanConditions";
 
-import { createPositionConfig } from "./config/addPosition.config";
+import { createPositionConfig, stepsAddPosition } from "./config/addPosition.config";
 import {
   IFormAddPosition,
   IFormAddPositionRef,
@@ -76,6 +77,10 @@ export function AddPositionUI(props: AddPositionUIProps) {
             />
           </StyledContainerAssisted>
         </>
+        {currentStepsNumber &&
+          currentStepsNumber.id === stepsAddPosition.loanConditions.id && (
+            <LoanCondition/>
+          )}
         <Stack justifyContent="end" gap="20px">
           <Button
             variant="outlined"
