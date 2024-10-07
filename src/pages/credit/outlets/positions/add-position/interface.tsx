@@ -32,11 +32,19 @@ interface AddPositionUIProps {
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
   handleToggleModal: () => void;
   handleCloseSectionMessage: () => void;
+  handleSubmitClick: () => void;
+  currentStepsNumber?: {
+    id: number;
+    number: number;
+    name: string;
+    description: string;
+  };
 }
 
 export function AddPositionUI(props: AddPositionUIProps) {
   const {
-    currentStep,
+    currentStepsNumber,
+    handleSubmitClick,
     steps,
     isCurrentFormValid,
     handleNextStep,
@@ -47,22 +55,11 @@ export function AddPositionUI(props: AddPositionUIProps) {
   const disabled = !isCurrentFormValid;
 
   return (
-    <Stack
-      direction="column"
-      padding={
-        smallScreen
-          ? "16px"
-          : "32px 64px"
-      }
-    >
+    <Stack direction="column" padding={smallScreen ? "16px" : "32px 64px"}>
       <Stack gap="48px" direction="column">
         <Stack gap="32px" direction="column">
           <Breadcrumbs crumbs={createPositionConfig[0].crumbs} />
-          <Stack
-            justifyContent="space-between"
-            alignItems="center"
-            gap="50px"
-          >
+          <Stack justifyContent="space-between" alignItems="center" gap="50px">
             <PageTitle
               title={createPositionConfig[0].title}
               description={createPositionConfig[0].description}
@@ -73,16 +70,23 @@ export function AddPositionUI(props: AddPositionUIProps) {
         <>
           <StyledContainerAssisted $cursorDisabled={disabled}>
             <Assisted
-              steps={steps}
-              currentStepId={currentStep}
-              handlePrev={handlePreviousStep}
-              handleNext={handleNextStep}
-              titleButtonText={titleButtonTextAssited}
+              step={currentStepsNumber!}
+              totalSteps={steps.length}
+              onBackClick={handlePreviousStep}
+              onNextClick={handleNextStep}
+              controls={titleButtonTextAssited}
+              onSubmitClick={handleSubmitClick}
             />
           </StyledContainerAssisted>
         </>
         <Stack justifyContent="end" gap="20px">
-          <Button variant="outlined" appearance="gray" onClick={handlePreviousStep}>{buttonText.back}</Button>
+          <Button
+            variant="outlined"
+            appearance="gray"
+            onClick={handlePreviousStep}
+          >
+            {buttonText.back}
+          </Button>
           <Button onClick={handleNextStep}>{buttonText.next}</Button>
         </Stack>
       </Stack>
