@@ -2,7 +2,6 @@ import { Label } from "@inubekit/label";
 import { Stack } from "@inubekit/stack";
 
 import { Styledinput } from "./styled";
-import React from "react";
 
 interface IRadioInputProps {
   id: string;
