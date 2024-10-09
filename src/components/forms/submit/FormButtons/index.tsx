@@ -1,7 +1,5 @@
 import { Button } from "@inubekit/button";
 import { Stack } from "@inubekit/stack";
-import { inube } from "@inubekit/foundations";
-import { ThemeProvider } from "styled-components";
 
 interface FormButtonsProps {
   handleReset: () => void;
@@ -28,10 +26,8 @@ function FormButtons(props: FormButtonsProps) {
 
   let disableCancel: boolean | undefined;
 
-  if (withDisableReset === undefined || withDisableReset === null) {
-    if (withDisabledButtons !== undefined && withDisabledButtons !== null) {
-      disableCancel = withDisabledButtons;
-    }
+  if (!withDisableReset && withDisabledButtons) {
+    disableCancel = withDisabledButtons;
   } else {
     disableCancel = withDisableReset;
   }
@@ -40,25 +36,22 @@ function FormButtons(props: FormButtonsProps) {
     <Stack direction="column" gap="24px">
       <Stack direction="column">{children}</Stack>
       <Stack justifyContent="flex-end" gap="8px">
-        <ThemeProvider theme={inube}>
-          <Button
-            appearance="gray"
-            disabled={disableCancel}
-            onClick={handleReset}
-            type="reset"
-          >
-            {cancelButtonText}
-          </Button>
-          <Button
-            appearance="primary"
-            onClick={handleSubmit}
-            loading={loading}
-            disabled={withDisabledButtons}
-            type="button"
-          >
-            {submitButtonText}
-          </Button>
-        </ThemeProvider>
+        <Button
+          appearance="gray"
+          disabled={disableCancel}
+          onClick={handleReset}
+          type="reset"
+        >
+          {cancelButtonText}
+        </Button>
+        <Button
+          appearance="primary"
+          onClick={handleSubmit}
+          loading={loading}
+          disabled={withDisabledButtons}
+        >
+          {submitButtonText}
+        </Button>
       </Stack>
     </Stack>
   );
