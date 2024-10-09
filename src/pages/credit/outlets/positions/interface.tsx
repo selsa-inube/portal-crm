@@ -2,7 +2,6 @@ import { useLocation } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 
 import { useMediaQuery } from "@inubekit/hooks";
-
 import { Stack } from "@inubekit/stack";
 import { Button } from "@inubekit/button";
 import { Breadcrumbs } from "@inubekit/breadcrumbs";
@@ -23,7 +22,6 @@ import { titlesOptions, positionsData } from "./config/dataPositions";
 import { IPosition } from "./types";
 import { usePagination } from "./components/GeneralInformationForm/utils";
 import { useState } from "react";
-import { DetailActions } from "./components/DetailActions";
 import { Details } from "./components/Detail";
 
 interface IPositionsProps {
@@ -34,8 +32,8 @@ interface IPositionsProps {
 
 export function PositionsUI(props: IPositionsProps) {
   const { loading, data, pageRecord = 10 } = props;
-  const [detailAction, setDetailAction] = useState(false);
 
+  const [detailAction, setDetailAction] = useState("");
   const smallScreen = useMediaQuery("(max-width:880px)");
   const location = useLocation();
   const label = creditOptionsConfig.find(
@@ -101,7 +99,11 @@ export function PositionsUI(props: IPositionsProps) {
                         appearance={rowIndex % 2 === 0 ? "dark" : "light"}
                       >
                         {title.id === "Acciones" ? (
-                          <Details />
+                          <Details
+                            isOpen={detailAction === String(rowIndex)}
+                            onOpen={() => setDetailAction(String(rowIndex))}
+                            onClose={() => setDetailAction("")}
+                          />
                         ) : (
                           entry[title.id]
                         )}
@@ -133,7 +135,6 @@ export function PositionsUI(props: IPositionsProps) {
           )}
         </Stack>
       </Stack>
-      {detailAction && <DetailActions onClose={() => setDetailAction(false)} />}
     </Stack>
   );
 }
