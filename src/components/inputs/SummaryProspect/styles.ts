@@ -31,8 +31,7 @@ export const IconWrapper = styled.div`
   align-items: center;
   border-left: 1px solid
     ${({ theme }) =>
-      theme?.palette?.neutralAlpha?.N40A ||
-    inube?.palette?.neutralAlpha?.N40A};
+      theme?.palette?.neutralAlpha?.N40A || inube?.palette?.neutralAlpha?.N40A};
   display: flex;
   padding: 0px 8px;
 `;

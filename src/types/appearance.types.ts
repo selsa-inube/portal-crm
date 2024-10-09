@@ -1,5 +1,4 @@
 interface IAppearance {
-  icon: React.ReactNode;
   appearance:
     | "primary"
     | "success"
@@ -9,7 +8,6 @@ interface IAppearance {
     | "dark"
     | "gray"
     | "light";
-  label: string;
 }
 
 export type { IAppearance };

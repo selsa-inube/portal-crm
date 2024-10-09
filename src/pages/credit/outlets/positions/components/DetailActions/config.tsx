@@ -6,7 +6,12 @@ import {
 } from "react-icons/md";
 import { IAppearance } from "@src/types/appearance.types";
 
-export const actions: IAppearance[] = [
+interface IAppearanceActions {
+  icon: React.ReactNode;
+  label: string;
+}
+
+export const actions: (IAppearance & IAppearanceActions)[] = [
   {
     icon: <MdOutlineRemoveRedEye />,
     appearance: "dark",
