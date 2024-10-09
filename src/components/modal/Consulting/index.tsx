@@ -13,7 +13,7 @@ export interface iConsultingProps {
 }
 
 export function Consulting(props: iConsultingProps) {
-  const { portalId } = props;
+  const { portalId = "portal" } = props;
 
   const node = document.getElementById(portalId ?? "portal");
   if (!node) {

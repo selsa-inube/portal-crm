@@ -5,24 +5,28 @@ import { Fieldset } from "@src/components/data/Fieldset";
 import { Textfield } from "@inubekit/textfield";
 import { Divider } from "@inubekit/divider";
 
+interface DataConditions {
+  title1: string;
+  title2: string;
+  label1: string;
+  placeholder1: string;
+  label2: string;
+  placeholder2: string;
+}
+
+interface Answer {
+  yes: string;
+  no: string;
+}
+
 interface LoanConditionUIProps {
   screenMovil: boolean;
   limitSelected: string | null;
   deadlineSelected: boolean;
   handleRadioChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleRadioChange1: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  dataConditions: {
-    title1: string;
-    title2: string;
-    label1: string;
-    placeholder1: string;
-    label2: string;
-    placeholder2: string;
-  };
-  answer: {
-    yes: string;
-    no: string;
-  };
+  dataConditions: DataConditions;
+  answer: Answer;
 }
 
 export function LoanConditionUI(props: LoanConditionUIProps) {

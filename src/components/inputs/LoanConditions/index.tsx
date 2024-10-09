@@ -5,7 +5,7 @@ import { dataConditions, answer } from "./config";
 
 export function LoanCondition() {
   const screenMovil = useMediaQuery("(max-width:880px)");
-  const [limitSelected, setLimitSelected] = useState<string | null>(null);
+  const [limitSelected, setLimitSelected] = useState("");
   const [deadlineSelected, setDeadlineSelected] = useState(false);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
