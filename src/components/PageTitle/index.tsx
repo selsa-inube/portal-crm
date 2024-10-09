@@ -14,7 +14,7 @@ interface PageTitleProps {
 }
 
 function PageTitle(props: PageTitleProps) {
-  const { title, icon, description, navigatePage } = props;
+  const { title, description, navigatePage } = props;
 
   const smallScreen = useMediaQuery("(max-width:880px)");
   const navigate = useNavigate();
@@ -23,24 +23,15 @@ function PageTitle(props: PageTitleProps) {
     <>
       <Stack gap="8px" direction="column">
         <Stack gap="8px" alignItems="center">
-          {icon ? (
-            <Icon
-              appearance="dark"
-              cursorHover={true}
-              icon={icon}
-              size="20px"
-            />
-          ) : (
-            <Icon
-              appearance="dark"
-              cursorHover={true}
-              icon={<MdArrowBack />}
-              size="20px"
-              onClick={() =>
-                navigatePage ? navigate(navigatePage) : navigate(-1)
-              }
-            />
-          )}
+          <Icon
+            appearance="dark"
+            cursorHover={true}
+            icon={<MdArrowBack />}
+            size="20px"
+            onClick={() =>
+              navigatePage ? navigate(navigatePage) : navigate(-1)
+            }
+          />
           <Text as="h1" type="title" size={smallScreen ? "medium" : "large"}>
             {title}
           </Text>
