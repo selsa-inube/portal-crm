@@ -18,6 +18,12 @@ import {
 import { StyledContainerAssisted } from "./styles";
 import { IMessageState } from "../../types/forms.types";
 
+interface StepDetails {
+  id: number;
+  number: number;
+  name: string;
+  description: string;
+}
 interface AddPositionUIProps {
   currentStep: number;
   steps: IStep[];
@@ -31,12 +37,7 @@ interface AddPositionUIProps {
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
   handleCloseSectionMessage: () => void;
   handleSubmitClick: () => void;
-  currentStepsNumber?: {
-    id: number;
-    number: number;
-    name: string;
-    description: string;
-  };
+  currentStepsNumber?: StepDetails;
 }
 
 export function AddPositionUI(props: AddPositionUIProps) {
@@ -50,7 +51,6 @@ export function AddPositionUI(props: AddPositionUIProps) {
   } = props;
 
   const smallScreen = useMediaQuery("(max-width:880px)");
-  const disabled = !isCurrentFormValid;
 
   return (
     <Stack direction="column" padding={smallScreen ? "16px" : "32px 64px"}>
@@ -66,7 +66,7 @@ export function AddPositionUI(props: AddPositionUIProps) {
           </Stack>
         </Stack>
         <>
-          <StyledContainerAssisted $cursorDisabled={disabled}>
+          <StyledContainerAssisted $cursorDisabled={!isCurrentFormValid}>
             <Assisted
               step={currentStepsNumber!}
               totalSteps={steps.length}
@@ -90,7 +90,11 @@ export function AddPositionUI(props: AddPositionUIProps) {
           >
             {titleButtonTextAssited.goBackText}
           </Button>
-          <Button onClick={handleNextStep}>{currentStepsNumber === steps[7] ? titleButtonTextAssited.submitText : titleButtonTextAssited.goNextText}</Button>
+          <Button onClick={handleNextStep}>
+            {currentStepsNumber === steps[7]
+              ? titleButtonTextAssited.submitText
+              : titleButtonTextAssited.goNextText}
+          </Button>
         </Stack>
       </Stack>
     </Stack>

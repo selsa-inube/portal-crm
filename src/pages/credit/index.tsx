@@ -1,16 +1,16 @@
 import { CreditUI } from "./interface";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useMatch } from "react-router-dom";
 import { useEffect } from "react";
 
 function Credit() {
   const navigate = useNavigate();
-  const location = useLocation();
+  const match = useMatch("/credit");
 
   useEffect(() => {
-    if (location.pathname === "/credit" || location.pathname === "/credit/") {
+    if (match) {
       navigate("/credit/options");
     }
-  }, [location, navigate]);
+  }, [match, navigate]);
 
   return <CreditUI />;
 }
