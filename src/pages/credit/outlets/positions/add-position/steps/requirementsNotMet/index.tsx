@@ -10,7 +10,11 @@ export function RequirementsNotMet() {
 
   return (
     <Fieldset isMobile={smallScreen} slim>
-      <Stack gap="16px" margin="16px">
+      <Stack
+        gap="16px"
+        margin={smallScreen ? "8px" : "16px"}
+        direction={smallScreen ? "column" : "row"}
+      >
         {dataNotMet.map((requirementData, index) => (
           <UnfulfilledRequirements
             key={index}
