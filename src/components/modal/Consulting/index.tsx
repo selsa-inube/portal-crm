@@ -4,6 +4,7 @@ import { Blanket } from "@inubekit/blanket";
 import { Spinner } from "@inubekit/spinner";
 import { Stack } from "@inubekit/stack";
 import { Text } from "@inubekit/text";
+import { useMediaQuery } from "@inubekit/hooks";
 
 import { dataConsulting } from "./config";
 import { StyledContainer } from "./styles";
@@ -22,11 +23,13 @@ export function Consulting(props: iConsultingProps) {
     );
   }
 
+  const screenMovil = useMediaQuery("(max-width:880px)");
+
   return createPortal(
     <Blanket>
       <StyledContainer>
         <Stack
-          width="450px"
+          width={screenMovil ? "270px" : "450px"}
           direction="column"
           alignItems="center"
           gap="24px"

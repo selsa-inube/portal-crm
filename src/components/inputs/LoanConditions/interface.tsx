@@ -76,6 +76,7 @@ export function LoanConditionUI(props: LoanConditionUIProps) {
               placeholder={dataConditions.placeholder1}
               size="compact"
               type="number"
+              fullwidth={screenMovil}
             />
           )}
         </Stack>
@@ -115,6 +116,7 @@ export function LoanConditionUI(props: LoanConditionUIProps) {
                   placeholder={dataConditions.placeholder2}
                   size="compact"
                   type="number"
+                  fullwidth={screenMovil}
                 />
               )}
             </Stack>
