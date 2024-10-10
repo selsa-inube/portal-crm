@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 
 import { ErrorPage } from "@components/layout/ErrorPage";
-import { CreditOptions } from "@src/pages/credit/outlets/options";
-import { Positions } from "@src/pages/credit/outlets/positions";
+import { CreditOptions } from "@pages/credit/outlets/options";
+import { Positions } from "@pages/credit/outlets/positions";
 
 function CreditRoutes() {
   return (

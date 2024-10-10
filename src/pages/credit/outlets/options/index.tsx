@@ -1,7 +1,7 @@
-import { appsConfig } from "@src/config/nav";
-import { CreditOptionsUI } from "./interface";
+import { appsConfig } from "@config/nav";
+import { creditOptionsConfig } from "@pages/credit/config/credit.config";
 
-import { creditOptionsConfig } from "../../config/credit.config";
+import { CreditOptionsUI } from "./interface";
 
 function CreditOptions() {
   return (

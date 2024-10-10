@@ -1,28 +1,20 @@
 import { Icon } from "@inubekit/icon";
-import { MdOutlineMoreVert } from "react-icons/md";
-import { DetailActions } from "../DetailActions";
+import { Stack } from "@inubekit/stack";
 
-interface DetailsProps {
-  isOpen: boolean;
-  onOpen: () => void;
-  onClose: () => void;
-}
+import { icons } from "./config";
 
-export function Details(props: DetailsProps) {
-  const { isOpen, onOpen, onClose } = props;
-
+export function Details() {
   return (
-    <>
-      <Icon
-        icon={<MdOutlineMoreVert />}
-        size="12px"
-        cursorHover
-        appearance="primary"
-        onClick={isOpen ? onClose : onOpen}
-        shape="circle"
-        variant="filled"
-      />
-      {isOpen && <DetailActions onClose={onClose} />}
-    </>
+    <Stack justifyContent="space-between">
+      {icons.map((item, index) => (
+        <Icon
+          key={index}
+          icon={item.icon}
+          size="16px"
+          cursorHover
+          appearance={item.appearance}
+        />
+      ))}
+    </Stack>
   );
 }
