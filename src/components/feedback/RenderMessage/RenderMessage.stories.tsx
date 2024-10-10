@@ -1,6 +1,7 @@
-import { StoryFn } from "@storybook/react";
-import { IRenderMessageProps, RenderMessage } from ".";
 import { MdThumbUpOffAlt } from "react-icons/md";
+import { StoryFn } from "@storybook/react";
+
+import { IRenderMessageProps, RenderMessage } from ".";
 
 const story = {
   component: [RenderMessage],

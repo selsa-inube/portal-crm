@@ -2,14 +2,14 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FormikProps } from "formik";
 
+import { IMessageState } from "@pages/credit/outlets/types/forms.types";
+
 import { IGeneralInformationEntry } from "../components/GeneralInformationForm";
 import { stepsAddPosition } from "./config/addPosition.config";
 import { IFormAddPosition, IFormAddPositionRef } from "./types";
 import { initalValuesPositions } from "./config/initialValues";
 import { addPositionStepsRules } from "./utils";
 import { AddPositionUI } from "./interface";
-
-import { IMessageState } from "../../types/forms.types";
 
 export function AddPosition() {
   const [currentStep, setCurrentStep] = useState<number>(

@@ -16,12 +16,11 @@ import {
   Pagination,
 } from "@inubekit/table";
 import { PageTitle } from "@components/PageTitle";
+import { creditOptionsConfig } from "@pages/credit/config/credit.config";
 
-import { creditOptionsConfig } from "../../config/credit.config";
 import { titlesOptions, positionsData } from "./config/dataPositions";
 import { IPosition } from "./types";
 import { usePagination } from "./components/GeneralInformationForm/utils";
-import { useState } from "react";
 import { Details } from "./components/Detail";
 
 interface IPositionsProps {
@@ -33,8 +32,7 @@ interface IPositionsProps {
 export function PositionsUI(props: IPositionsProps) {
   const { loading, data, pageRecord = 10 } = props;
 
-  const [detailAction, setDetailAction] = useState("");
-  const smallScreen = useMediaQuery("(max-width:880px)");
+  const smallScreen = useMediaQuery("(max-width:990px)");
   const location = useLocation();
   const label = creditOptionsConfig.find(
     (item) => item.url === location.pathname
@@ -49,6 +47,10 @@ export function PositionsUI(props: IPositionsProps) {
     lastEntryInPage,
     paginatedData,
   } = usePagination(positionsData, pageRecord);
+
+  const displayedTitlesOptions = smallScreen
+    ? titlesOptions.filter(title => ['Código', 'Fecha-solicitud', 'Acciones'].includes(title.titleName))
+    : titlesOptions;
 
   return (
     <Stack
@@ -77,7 +79,7 @@ export function PositionsUI(props: IPositionsProps) {
             <Table tableLayout="auto">
               <Thead>
                 <Tr border="bottom">
-                  {titlesOptions.map((title, index) => (
+                  {displayedTitlesOptions.map((title, index) => (
                     <Th
                       key={index}
                       action={title.action}
@@ -91,7 +93,7 @@ export function PositionsUI(props: IPositionsProps) {
               <Tbody>
                 {paginatedData.map((entry, rowIndex) => (
                   <Tr key={rowIndex}>
-                    {titlesOptions.map((title) => (
+                    {displayedTitlesOptions.map((title) => (
                       <Td
                         key={`e-${entry[title.id]}`}
                         align={title.id === "Acciones" ? "center" : "left"}
@@ -99,11 +101,7 @@ export function PositionsUI(props: IPositionsProps) {
                         appearance={rowIndex % 2 === 0 ? "dark" : "light"}
                       >
                         {title.id === "Acciones" ? (
-                          <Details
-                            isOpen={detailAction === String(rowIndex)}
-                            onOpen={() => setDetailAction(String(rowIndex))}
-                            onClose={() => setDetailAction("")}
-                          />
+                          <Details />
                         ) : (
                           entry[title.id]
                         )}
@@ -115,7 +113,7 @@ export function PositionsUI(props: IPositionsProps) {
               <Tfoot>
                 <Tr border="bottom">
                   <Td
-                    colSpan={titlesOptions.length}
+                    colSpan={displayedTitlesOptions.length}
                     type="custom"
                     align="right"
                   >

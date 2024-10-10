@@ -1,5 +1,5 @@
-import { INav } from "@components/layout/AppPage/types";
 import { MdOutlineStart, MdVpnKey, MdOutlineDescription } from "react-icons/md";
+import { INav } from "@components/layout/AppPage/types";
 
 const appsConfig = [
   {

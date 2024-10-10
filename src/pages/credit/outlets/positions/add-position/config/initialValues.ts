@@ -1,4 +1,4 @@
-import { IGeneralInformationEntry } from "../../components/GeneralInformationForm";
+import { IGeneralInformationEntry } from "@pages/credit/outlets/positions/components/GeneralInformationForm";
 
 const generalInformation: IGeneralInformationEntry = {
   abbreviated_name: "",

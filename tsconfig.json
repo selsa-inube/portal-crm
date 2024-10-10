@@ -16,7 +16,9 @@
       "@context/*": ["src/context/*"],
       "@pages/*": ["src/pages/*"],
       "@assets/*": ["src/assets/*"],
-      "@services/*": ["src/services/*"]
+      "@services/*": ["src/services/*"],
+      "@config/*": ["src/config/*"],
+      "@validations/*": ["src/validations/*"],
     },
 
     /* Bundler mode */
