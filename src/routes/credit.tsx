@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 
 import { ErrorPage } from "@components/layout/ErrorPage";
-import { CreditOptions } from "@src/pages/credit/outlets/options";
-import { Positions } from "@src/pages/credit/outlets/positions";
-import { AddPosition } from "@src/pages/credit/outlets/positions/add-position";
+import { CreditOptions } from "@pages/credit/outlets/options";
+import { Positions } from "@pages/credit/outlets/positions";
+import { AddPosition } from "@pages/credit/outlets/positions/add-position";
 
 function CreditRoutes() {
   return (

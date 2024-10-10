@@ -1,6 +1,7 @@
-import { CreditUI } from "./interface";
 import { useNavigate, useMatch } from "react-router-dom";
 import { useEffect } from "react";
+
+import { CreditUI } from "./interface";
 
 function Credit() {
   const navigate = useNavigate();
