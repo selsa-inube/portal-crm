@@ -3,20 +3,21 @@ import { Breadcrumbs } from "@inubekit/breadcrumbs";
 import { Stack } from "@inubekit/stack";
 import { useMediaQuery } from "@inubekit/hooks";
 import { Button } from "@inubekit/button";
-
 import { PageTitle } from "@components/PageTitle";
 import { LoanCondition } from "@components/inputs/LoanConditions";
+import { IMessageState } from "@pages/credit/outlets/types/forms.types";
 
-import { createPositionConfig, stepsAddPosition } from "./config/addPosition.config";
+import {
+  createPositionConfig, stepsAddPosition,
+} from "./config/addPosition.config";
 import {
   IFormAddPosition,
   IFormAddPositionRef,
   IStep,
   titleButtonTextAssited,
 } from "./types";
-
 import { StyledContainerAssisted } from "./styles";
-import { IMessageState } from "../../types/forms.types";
+import { RequirementsNotMet } from "./steps/requirementsNotMet";
 
 interface StepDetails {
   id: number;
@@ -74,9 +75,14 @@ export function AddPositionUI(props: AddPositionUIProps) {
               onNextClick={handleNextStep}
               controls={titleButtonTextAssited}
               onSubmitClick={handleSubmitClick}
+              size={smallScreen ? "small" : "large"}
             />
           </StyledContainerAssisted>
         </>
+        {currentStepsNumber &&
+          currentStepsNumber.id === stepsAddPosition.generalInformation.id && (
+            <RequirementsNotMet />
+          )}
         {currentStepsNumber &&
           currentStepsNumber.id === stepsAddPosition.loanConditions.id && (
             <LoanCondition/>

@@ -11,11 +11,9 @@ export interface IAction {
 export interface IPosition {
   [key: string]: React.ReactNode;
   Codigo: string;
-  Solicitante: string;
   "Fecha-solicitud": string;
   Destino: string;
   Valor: string;
-  Estado: string;
   Acciones?: string;
   n_roles?: string[];
 }

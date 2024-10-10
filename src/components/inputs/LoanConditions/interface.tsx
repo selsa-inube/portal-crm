@@ -1,7 +1,7 @@
 import { Label } from "@inubekit/label";
 import { Stack } from "@inubekit/stack";
 import { Text } from "@inubekit/text";
-import { Fieldset } from "@src/components/data/Fieldset";
+import { Fieldset } from "@components/data/Fieldset";
 import { Textfield } from "@inubekit/textfield";
 import { Divider } from "@inubekit/divider";
 

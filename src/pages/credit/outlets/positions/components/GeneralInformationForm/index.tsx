@@ -1,13 +1,14 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
+import { FormikProps, useFormik } from "formik";
 
 import * as Yup from "yup";
-import { validationMessages } from "@src/validations/validationMessages";
+import { validationMessages } from "@validations/validationMessages";
 import { IMessageState } from "@pages/credit/outlets/types/forms.types";
+import { generalMessage } from "@pages/credit/outlets/positions/add-position/config/messages.config";
+import { IHandleUpdateDataSwitchstep } from "@pages/credit/outlets/positions/add-position/types";
 
-import { FormikProps, useFormik } from "formik";
 import { GeneralInformationFormUI } from "./interface";
-import { generalMessage } from "../../add-position/config/messages.config";
-import { IHandleUpdateDataSwitchstep } from "../../add-position/types";
+
 export interface IGeneralInformationEntry {
   abbreviated_name: string;
   n_Uso: string;

@@ -1,9 +1,11 @@
+import { FormikValues } from "formik";
+
 import { Grid } from "@inubekit/grid";
 import { Textfield } from "@inubekit/textfield";
 import { RenderMessage } from "@components/feedback/RenderMessage";
 import { FormButtons } from "@components/forms/submit/FormButtons";
 import { IMessageState } from "@pages/credit/outlets/types/forms.types";
-import { FormikValues } from "formik";
+
 import { IGeneralInformationEntry } from ".";
 
 function stateValue(formik: FormikValues, attribute: string) {
