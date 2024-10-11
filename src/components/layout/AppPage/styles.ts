@@ -6,15 +6,9 @@ const StyledAppPage = styled.div`
   box-sizing: border-box;
 `;
 
-
 const StyledContainer = styled.div`
   display: inherit;
   overflow: hidden;
-
-  p {
-    white-space: nowrap;
-  }
-
 `;
 
 const StyledMain = styled.main`
