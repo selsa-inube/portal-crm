@@ -41,88 +41,90 @@ export function LoanConditionUI(props: LoanConditionUIProps) {
   } = props;
 
   return (
-    <Fieldset slim isMobile={screenMovil}>
-      <Stack direction="column" padding="8px 16px" gap="16px">
-        <Text size="medium" type="body">
-          {dataConditions.title1}
-        </Text>
-        <Stack gap="16px" alignItems="center">
-          <Stack direction="column" gap="10px">
-            <Stack>
-              <input
-                id="limit-yes"
-                name="loanCondition"
-                type="radio"
-                value="yes"
-                onChange={handleRadioChange}
-              />
-              <Label htmlFor="limit-yes">{answer.yes}</Label>
+    <Stack height={screenMovil ? "320px" : "265px"}>
+      <Fieldset slim isMobile={screenMovil}>
+        <Stack direction="column" padding="8px 16px" gap="16px">
+          <Text size="medium" type="body">
+            {dataConditions.title1}
+          </Text>
+          <Stack gap="16px" alignItems="center">
+            <Stack direction="column" gap="10px">
+              <Stack>
+                <input
+                  id="limit-yes"
+                  name="loanCondition"
+                  type="radio"
+                  value="yes"
+                  onChange={handleRadioChange}
+                />
+                <Label htmlFor="limit-yes">{answer.yes}</Label>
+              </Stack>
+              <Stack >
+                <input
+                  id="limit-no"
+                  name="loanCondition"
+                  type="radio"
+                  value="no"
+                  onChange={handleRadioChange}
+                />
+                <Label htmlFor="limit-no">{answer.no}</Label>
+              </Stack>
             </Stack>
-            <Stack >
-              <input
-                id="limit-no"
-                name="loanCondition"
-                type="radio"
-                value="no"
-                onChange={handleRadioChange}
+            {limitSelected === "yes" && (
+              <Textfield
+                id="1"
+                label={dataConditions.label1}
+                placeholder={dataConditions.placeholder1}
+                size="compact"
+                type="number"
+                fullwidth={screenMovil}
               />
-              <Label htmlFor="limit-no">{answer.no}</Label>
-            </Stack>
+            )}
           </Stack>
-          {limitSelected === "yes" && (
-            <Textfield
-              id="1"
-              label={dataConditions.label1}
-              placeholder={dataConditions.placeholder1}
-              size="compact"
-              type="number"
-              fullwidth={screenMovil}
-            />
+          {limitSelected === "no" && (
+            <>
+              <Divider dashed />
+              <Text size="medium" type="body">
+                {dataConditions.title2}
+              </Text>
+              <Stack gap="16px" alignItems="center">
+                <Stack direction="column" gap="10px">
+                  <Stack>
+                    <input
+                      id="deadline-yes"
+                      name="deadlineCondition"
+                      type="radio"
+                      value="yes"
+                      onChange={handleRadioChange1}
+                    />
+                    <Label htmlFor="deadline-yes">{answer.yes}</Label>
+                  </Stack>
+                  <Stack>
+                    <input
+                      id="deadline-no"
+                      name="deadlineCondition"
+                      type="radio"
+                      value="no"
+                      onChange={handleRadioChange1}
+                    />
+                    <Label htmlFor="deadline-no">{answer.no}</Label>
+                  </Stack>
+                </Stack>
+                {deadlineSelected && (
+                  <Textfield
+                    id="2"
+                    label={dataConditions.label2}
+                    placeholder={dataConditions.placeholder2}
+                    size="compact"
+                    type="number"
+                    fullwidth={screenMovil}
+                  />
+                )}
+              </Stack>
+            </>
           )}
         </Stack>
-        {limitSelected === "no" && (
-          <>
-            <Divider dashed />
-            <Text size="medium" type="body">
-              {dataConditions.title2}
-            </Text>
-            <Stack gap="16px" alignItems="center">
-              <Stack direction="column" gap="10px">
-                <Stack>
-                  <input
-                    id="deadline-yes"
-                    name="deadlineCondition"
-                    type="radio"
-                    value="yes"
-                    onChange={handleRadioChange1}
-                  />
-                  <Label htmlFor="deadline-yes">{answer.yes}</Label>
-                </Stack>
-                <Stack>
-                  <input
-                    id="deadline-no"
-                    name="deadlineCondition"
-                    type="radio"
-                    value="no"
-                    onChange={handleRadioChange1}
-                  />
-                  <Label htmlFor="deadline-no">{answer.no}</Label>
-                </Stack>
-              </Stack>
-              {deadlineSelected && (
-                <Textfield
-                  id="2"
-                  label={dataConditions.label2}
-                  placeholder={dataConditions.placeholder2}
-                  size="compact"
-                  type="number"
-                  fullwidth={screenMovil}
-                />
-              )}
-            </Stack>
-          </>
-        )}
-      </Stack>
-    </Fieldset>
+      </Fieldset>
+    </Stack>
   );
 }
