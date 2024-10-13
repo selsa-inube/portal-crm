@@ -1,15 +1,21 @@
 import { Meta } from "@storybook/react";
+import { MemoryRouter } from "react-router-dom";
 
 import selsaLogo from "@assets/images/selsa.png";
 import errorImage from "@assets/images/timeout.png";
 
 import { ErrorPage, ErrorPageProps } from "./index";
 
-
 const meta: Meta<typeof ErrorPage> = {
-  title: "layout/Error",
+  title: "components/layouts/Error",
   component: ErrorPage,
-
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
 };
 
 export const Default = (args: ErrorPageProps) => <ErrorPage {...args} />;
