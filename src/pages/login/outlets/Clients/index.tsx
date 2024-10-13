@@ -27,7 +27,7 @@ function Clients(props: IClients) {
     setSearch(event.target.value);
   };
 
-  const handleCChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setClientLocal({ ref: event.target, value: false });
     handleClientChange(
       clients.filter((client0) => client0.name === event.target.value)[0]
@@ -55,7 +55,7 @@ function Clients(props: IClients) {
       search={search}
       client={clientLocal}
       handleSearchChange={handleSearchChange}
-      handleClientChange={handleCChange}
+      handleClientChange={handleChange}
       filterClients={filterClients}
       handleSubmit={handleSubmit}
     />

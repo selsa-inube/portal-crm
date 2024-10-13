@@ -19,36 +19,29 @@ function PageTitle(props: PageTitleProps) {
   const navigate = useNavigate();
 
   return (
-    <>
-      <Stack gap="8px" direction="column">
-        <Stack gap="8px" alignItems="center">
-          {icon ? (
-            <Icon
-              appearance="dark"
-              cursorHover={true}
-              icon={icon}
-              size="20px"
-            />
-          ) : (
-            <Icon
-              appearance="dark"
-              cursorHover={true}
-              icon={<MdArrowBack />}
-              size="20px"
-              onClick={() =>
-                navigatePage ? navigate(navigatePage) : navigate(-1)
-              }
-            />
-          )}
-          <Text as="h1" type="title" size={smallScreen ? "medium" : "large"}>
-            {title}
-          </Text>
-        </Stack>
-        <Text appearance="gray" size={smallScreen ? "small" : "medium"}>
-          {description}
+    <Stack gap="8px" direction="column">
+      <Stack gap="8px" alignItems="center">
+        {icon ? (
+          <Icon appearance="dark" cursorHover={true} icon={icon} size="20px" />
+        ) : (
+          <Icon
+            appearance="dark"
+            cursorHover={true}
+            icon={<MdArrowBack />}
+            size="20px"
+            onClick={() =>
+              navigatePage ? navigate(navigatePage) : navigate(-1)
+            }
+          />
+        )}
+        <Text as="h1" type="title" size={smallScreen ? "medium" : "large"}>
+          {title}
         </Text>
       </Stack>
-    </>
+      <Text appearance="gray" size={smallScreen ? "small" : "medium"}>
+        {description}
+      </Text>
+    </Stack>
   );
 }
 

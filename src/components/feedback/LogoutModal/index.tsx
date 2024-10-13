@@ -7,6 +7,7 @@ import { Icon } from "@inubekit/icon";
 import { MdClose } from "react-icons/md";
 
 import { StyledBackdropBlanket, StyledModal } from "./styles";
+import { textsConfig } from "./config";
 
 interface ILogoutModalProps {
   logoutPath: string;
@@ -25,7 +26,7 @@ function LogoutModal(props: ILogoutModalProps) {
             <Stack direction="column" gap="24px">
               <Stack justifyContent="space-between">
                 <Text type="title" size={isSmallScreen ? "small" : "medium"}>
-                  Cerrar sesión
+                  {textsConfig.title}
                 </Text>
                 <Icon
                   appearance="dark"
@@ -37,7 +38,7 @@ function LogoutModal(props: ILogoutModalProps) {
               </Stack>
 
               <Text size={isSmallScreen ? "small" : "large"} appearance="gray">
-                ¿Realmente quieres cerrar sesión?
+                {textsConfig.confirmMessage}
               </Text>
             </Stack>
             <Stack justifyContent="flex-end" gap="16px">
@@ -46,7 +47,7 @@ function LogoutModal(props: ILogoutModalProps) {
                 spacing={isSmallScreen ? "compact" : "wide"}
                 onClick={handleShowBlanket}
               >
-                Cancelar
+                {textsConfig.cancelButton}
               </Button>
               <Button
                 appearance="primary"
@@ -55,7 +56,7 @@ function LogoutModal(props: ILogoutModalProps) {
                 type="link"
                 path={logoutPath}
               >
-                Cerrar sesión
+                {textsConfig.logoutButton}
               </Button>
             </Stack>
           </Stack>

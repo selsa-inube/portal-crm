@@ -4,12 +4,12 @@ import { Text } from "@inubekit/text";
 import { StyledMenu, StyledContainerLabel } from "./styles";
 import { IOptions } from "./types";
 
-interface MenuPropectProps {
+interface MenuProspectProps {
   options: IOptions[];
   onMouseLeave: () => void;
 }
 
-export const MenuPropect = (props: MenuPropectProps) => {
+export const MenuProspect = (props: MenuProspectProps) => {
   const { options, onMouseLeave } = props;
 
   return (
@@ -26,4 +26,4 @@ export const MenuPropect = (props: MenuPropectProps) => {
     </StyledMenu>
   );
 };
-export type { MenuPropectProps };
+export type { MenuProspectProps };

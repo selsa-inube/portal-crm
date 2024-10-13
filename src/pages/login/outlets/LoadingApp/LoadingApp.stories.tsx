@@ -4,7 +4,7 @@ import { LoadingApp } from "./index";
 
 const story = {
   components: [LoadingApp],
-  title: "layouts/login/outlets/loading-app",
+  title: "components/layouts/login/outlets/loading-app",
   parameters: {
     layout: "fullscreen",
   },

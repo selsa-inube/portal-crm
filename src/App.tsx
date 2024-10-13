@@ -8,12 +8,12 @@ import {
 import { Login } from "@pages/login";
 import { ErrorPage } from "@components/layout/ErrorPage";
 import AppContextProvider from "@context/AppContext";
+import { Home } from "@pages/home";
+import { AppPage } from "@components/layout/AppPage";
 
 import { LoginRoutes } from "./routes/login";
 import { GlobalStyles } from "./styles/global";
 import { CreditRoutes } from "./routes/credit";
-import { Home } from "./pages/home";
-import { AppPage } from "./components/layout/AppPage";
 
 const routeConfig = (
   <>

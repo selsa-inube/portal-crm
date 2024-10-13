@@ -16,7 +16,7 @@ import { AppMenu, AppMenuProps } from "./index";
 
 const story = {
   components: [AppMenu],
-  title: "layouts/AppMenu",
+  title: "components/layouts/AppMenu",
   parameters: {
     layout: "fullscreen",
   },

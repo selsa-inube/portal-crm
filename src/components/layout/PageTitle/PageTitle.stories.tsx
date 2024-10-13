@@ -1,15 +1,14 @@
 import { BrowserRouter } from "react-router-dom";
-import { StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { creditConfig } from "@src/config/credit/breadcrumbs.config";
-
 import { PageTitle, PageTitleProps } from "./index";
 
-const story = {
-  component: [PageTitle],
-  title: "layouts/PageTitle",
+const meta: Meta<PageTitleProps> = {
+  component: PageTitle,
+  title: "components/layouts/PageTitle",
   decorators: [
-    (Story: StoryFn) => (
+    (Story) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>
@@ -25,7 +24,6 @@ const story = {
       description: "A short description or subtitle displayed below the title.",
     },
     icon: {
-      control: { type: "element" },
       description: "An optional icon displayed next to the title.",
     },
   },
@@ -41,9 +39,8 @@ Default.args = {
 
 export const WithCustomIcon = Template.bind({});
 WithCustomIcon.args = {
-  title: creditConfig[0].label,
-  description: creditConfig[0].description,
+  ...Default.args,
   icon: creditConfig[0].icon,
 };
 
-export default story;
+export default meta;

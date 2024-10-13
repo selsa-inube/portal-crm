@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { inube } from "@inubekit/foundations";
 
+import { StyledMenuContainerBoxShadowColor } from "./config";
+
 const StyledAppPage = styled.div`
   display: inherit;
   box-sizing: border-box;
@@ -34,8 +36,8 @@ const StyledMenuContainer = styled.div`
   overflow: hidden;
   border-radius: 8px;
   width: 312px;
-  box-shadow: 0px 2px 3px 0px #091e4221;
-  box-shadow: 0px 6px 10px 4px #091e4221;
+  box-shadow: 0px 2px 3px 0px ${StyledMenuContainerBoxShadowColor};
+  box-shadow: 0px 6px 10px 4px ${StyledMenuContainerBoxShadowColor};
   background-color: ${({ theme }) =>
     theme?.palette?.neutral?.N0 || inube.palette.neutral.N0};
 `;

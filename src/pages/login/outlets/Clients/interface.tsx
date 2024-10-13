@@ -15,14 +15,13 @@ import {
   StyledNoResults,
   StyledClientsItem,
 } from "./styles";
+import { textsConfig } from "./config";
 
 function NoResultsMessage({ search }: { search: string }) {
   return (
     <StyledNoResults>
-      <Text size="medium">No se encontraron resultados para "{search}".</Text>
-      <Text size="medium">
-        Por favor, intenta modificando los parámetros de búsqueda.
-      </Text>
+      <Text size="medium">{textsConfig.noResultsMessage.title(search)}</Text>
+      <Text size="medium">{textsConfig.noResultsMessage.suggestion}</Text>
     </StyledNoResults>
   );
 }
@@ -48,21 +47,21 @@ function ClientsUI(props: ClientsUIProps) {
     handleSubmit,
   } = props;
 
-  const filteredClients = filterClients(clients, search);
+  const filteredClients = filterClients(clients, search) || clients;
 
   return (
     <StyledClients>
       <Text type="title" as="h2" textAlign="center">
-        Unidades de negocio
+        {textsConfig.clientsTitle}
       </Text>
       <Text size="medium" textAlign="center">
-        Selecciona la unidad de negocio con la que vas a trabajar hoy
+        {textsConfig.clientsSubtitle}
       </Text>
       <form>
         <Stack direction="column" alignItems="flex-end">
           {clients.length > 10 && (
             <Textfield
-              placeholder="Buscar..."
+              placeholder={textsConfig.searchPlaceholder}
               type="search"
               name="searchClients"
               id="searchClients"
@@ -91,7 +90,7 @@ function ClientsUI(props: ClientsUIProps) {
           </StyledClientsList>
           <Button
             type="button"
-            children="Continuar"
+            children={textsConfig.continueButton}
             disabled={client.value}
             onClick={handleSubmit}
           />

@@ -3,7 +3,7 @@ import { CheckingCredentials } from ".";
 
 const story = {
   components: [CheckingCredentials],
-  title: "layouts/login/outlets/checking-credentials",
+  title: "components/layouts/login/outlets/checking-credentials",
   parameters: {
     layout: "fullscreen",
   },

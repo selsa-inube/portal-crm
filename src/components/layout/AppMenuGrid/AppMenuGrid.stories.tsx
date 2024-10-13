@@ -14,7 +14,7 @@ import { AppMenuGrid, AppMenuGridProps } from "./index";
 
 const story = {
   components: [AppMenuGrid],
-  title: "layouts/AppMenuGrid",
+  title: "components/layouts/AppMenuGrid",
   parameters: {
     layout: "fullscreen",
   },
