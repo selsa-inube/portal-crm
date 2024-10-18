@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { inube } from "@inubekit/foundations";
+
+import { StyledMenuContainerBoxShadowColor } from "./config";
 
 interface IStyledCollapseIcon {
   $collapse: boolean;
@@ -19,11 +22,6 @@ const StyledMain = styled.main`
   box-sizing: border-box;
   height: calc(100vh - 54px);
   overflow-y: auto;
-  padding: 32px 64px;
-
-  @media screen and (max-width: 560px) {
-    padding: 24px;
-  }
 `;
 
 const StyledContentImg = styled(Link)`
@@ -31,7 +29,25 @@ const StyledContentImg = styled(Link)`
 `;
 
 const StyledLogo = styled.img`
-  max-width: 100px;
+  max-width: 120px;
+`;
+
+const StyledMenuContainer = styled.div`
+  position: absolute;
+  top: 48px;
+  right: 15px;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  width: 312px;
+  box-shadow: 0px 2px 3px 0px ${StyledMenuContainerBoxShadowColor};
+  box-shadow: 0px 6px 10px 4px ${StyledMenuContainerBoxShadowColor};
+  background-color: ${({ theme }) =>
+    theme?.palette?.neutral?.N0 || inube.palette.neutral.N0};
+`;
+
+const StyledContainerNav = styled.div`
+  max-height: calc(100vh - 50px);
 `;
 
 const StyledCollapseIcon = styled.div<IStyledCollapseIcon>`
@@ -54,6 +70,8 @@ export {
   StyledContentImg,
   StyledLogo,
   StyledMain,
+  StyledMenuContainer,
+  StyledContainerNav,
   StyledCollapseIcon,
   StyledCollapse,
 };

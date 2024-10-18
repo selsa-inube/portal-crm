@@ -1,12 +1,16 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 import linparLogo from "@assets/images/linpar.png";
 
-import { AppContextProviderProps, IAppContext, IClient } from "./types";
-
+import { IAppContext, AppContextProviderProps, IClient } from "./types";
 
 export const AppContext = createContext<IAppContext>({
-  user: { username: "", id: "", company: "", operator: { name: "", logo: "" } },
+  user: {
+    username: "",
+    id: "",
+    company: "",
+    operator: { name: "", logo: "" },
+  },
   handleClientChange: () => {},
 });
 
@@ -17,8 +21,8 @@ export default function AppContextProvider(props: AppContextProviderProps) {
   );
 
   const initialClientLogo = localStorage.getItem("clientLogo") || linparLogo;
-  const[clientLogo, setClientLogo] = useState<string>(initialClientLogo);
-  
+  const [clientLogo, setClientLogo] = useState<string>(initialClientLogo);
+
   function handleClientChange(client: IClient) {
     const { sigla, logo } = client;
     setClientSigla(sigla);
@@ -30,10 +34,9 @@ export default function AppContextProvider(props: AppContextProviderProps) {
     localStorage.setItem("clientLogo", clientLogo);
   }, [clientSigla, clientLogo]);
 
-  
   const company = clientSigla;
 
-   const userContext: IAppContext = {
+  const userContext: IAppContext = {
     user: {
       username: "Dora Lucia",
       id: "abc123",

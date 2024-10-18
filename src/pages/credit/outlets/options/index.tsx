@@ -1,14 +1,16 @@
-import { appsConfig } from "@config/nav";
-import { creditOptionsConfig } from "@pages/credit/config/credit.config";
+import { creditConfig } from "@src/config/credit/breadcrumbs.config";
+import { creditOptionsConfig } from "@src/config/credit/appcards.config";
 
 import { CreditOptionsUI } from "./interface";
 
 function CreditOptions() {
   return (
     <CreditOptionsUI
-      appName={appsConfig[0].label}
+      appName={creditConfig[0].label}
+      appDescription={creditConfig[0].description}
       appOptions={creditOptionsConfig}
-      appRoute={appsConfig[0].crumbs}
+      appRoute={creditConfig[0].crumbs}
+      navigatePage="/home"
     />
   );
 }

@@ -16,7 +16,7 @@ interface AppMenuCardProps {
 function AppMenuCard(props: AppMenuCardProps) {
   const { icon, label, description, url } = props;
   return (
-    <Stack direction="column" justifyContent="start">
+    <Stack direction="column">
       <StyledAppMenuCard to={url}>
         <Stack gap="4px" alignItems="center" direction="column">
           <Icon

@@ -109,22 +109,22 @@ export function AddPosition() {
 
   return (
     <>
-    <AddPositionUI
-      steps={steps}
-      currentStep={currentStep}
-      isCurrentFormValid={isCurrentFormValid}
-      dataAddPositionLinixForm={dataAddPositionLinixForm}
-      formReferences={formReferences}
-      message={message}
-      setIsCurrentFormValid={setIsCurrentFormValid}
-      handleNextStep={handleNextStep}
-      handlePreviousStep={handlePreviousStep}
-      setCurrentStep={setCurrentStep}
-      handleCloseSectionMessage={handleCloseSectionMessage}
-      currentStepsNumber={currentStepsNumber}
-      handleSubmitClick={handleSubmitClick}
-    />
-    {showConsultingModal && <Consulting/>}
+      <AddPositionUI
+        steps={steps}
+        currentStep={currentStep}
+        isCurrentFormValid={isCurrentFormValid}
+        dataAddPositionLinixForm={dataAddPositionLinixForm}
+        formReferences={formReferences}
+        message={message}
+        setIsCurrentFormValid={setIsCurrentFormValid}
+        handleNextStep={handleNextStep}
+        handlePreviousStep={handlePreviousStep}
+        setCurrentStep={setCurrentStep}
+        handleCloseSectionMessage={handleCloseSectionMessage}
+        currentStepsNumber={currentStepsNumber}
+        handleSubmitClick={handleSubmitClick}
+      />
+      {showConsultingModal && <Consulting />}
     </>
   );
 }

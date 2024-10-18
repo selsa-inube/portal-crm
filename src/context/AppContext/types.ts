@@ -3,7 +3,7 @@ interface IOperator {
   logo: string;
 }
 
-interface IUser {
+interface IUserContext {
   username: string;
   id: string;
   company: string;
@@ -18,7 +18,7 @@ interface IClient {
 }
 
 interface IAppContext {
-  user: IUser;
+  user: IUserContext;
   handleClientChange: (client: IClient) => void;
 }
 

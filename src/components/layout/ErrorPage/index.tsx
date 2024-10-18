@@ -5,10 +5,11 @@ import { Text } from "@inubekit/text";
 import { Button } from "@inubekit/button";
 import { useMediaQueries } from "@inubekit/hooks";
 
-import selsaLogo from "@assets/images/selsa.png";
-import errorImage from "@assets/images/timeout.png";
+import selsaLogo from "@assets/images/selsa.png"; // Ensure this import path is correct
+import errorImage from "@assets/images/timeout.png"; // Ensure this import path is correct
 
 import { StyledCompanyLogo, StyledErrorImage } from "./styles";
+import { errorPageConfig } from "./config";
 
 interface ErrorPageProps {
   logo?: string;
@@ -22,11 +23,11 @@ interface ErrorPageProps {
 function ErrorPage(props: ErrorPageProps) {
   const {
     logo = selsaLogo,
-    logoAlt = "Sistemas Enlinea",
-    heading = "!Oh! Algo ha salido mal",
-    description = "El servicio no se encuentra disponible en el momento. Por favor intenta de nuevo más tarde.",
+    logoAlt = errorPageConfig.logoAlt,
+    heading = errorPageConfig.heading,
+    description = errorPageConfig.description,
     image = errorImage,
-    imageAlt = "Ha surgido un error. Revisa la descripción",
+    imageAlt = errorPageConfig.imageAlt,
   } = props;
 
   const mediaQueries = ["(max-width: 1000px)", "(max-width: 600px)"];
@@ -34,7 +35,7 @@ function ErrorPage(props: ErrorPageProps) {
 
   return (
     <Stack
-      padding={matches["(max-width: 600px)"] ? "s400" : "s1000"}
+      margin={matches["(max-width: 600px)"] ? "40px" : "100px 100px 0px"}
       gap={matches["(max-width: 1000px)"] ? "64px" : "120px"}
       direction="column"
     >
@@ -45,7 +46,7 @@ function ErrorPage(props: ErrorPageProps) {
           matches["(max-width: 600px)"] ? "auto" : "repeat(2, 1fr)"
         }
         alignItems="center"
-        gap={matches["(max-width: 600px)"] ? "s800" : "120px"}
+        gap={matches["(max-width: 600px)"] ? "64px" : "120px"}
       >
         <Stack gap="24px" direction="column">
           <Stack gap="16px" direction="column">
@@ -54,7 +55,13 @@ function ErrorPage(props: ErrorPageProps) {
               {description}
             </Text>
           </Stack>
-          <Button iconBefore={<MdChevronLeft size={18} />}>Exit</Button>
+          <Button
+            iconBefore={<MdChevronLeft size={18} />}
+            type="link"
+            path="/home"
+          >
+            Salir
+          </Button>
         </Stack>
         <StyledErrorImage src={image} alt={imageAlt} />
       </Grid>

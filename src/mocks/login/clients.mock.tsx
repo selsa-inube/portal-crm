@@ -1,8 +1,9 @@
 import cooservunal from "@assets/mocks_images/cooservunal.png";
 import corbanca from "@assets/mocks_images/corbanca.png";
 import fondecom from "@assets/mocks_images/fondecom.png";
+import { IClient } from "@src/context/AppContext/types";
 
-const clientsDataMock = [
+const clientsDataMock: IClient[] = [
   {
     id: "151615",
     name: "Presente Fondo de Empleados Grupo Éxito",

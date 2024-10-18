@@ -57,32 +57,31 @@ export const createPositionConfig = [
   {
     id: 1,
     title: "Nuevo prospecto",
-    description:
-      "Aspectos que son un impedimento y deben cambiar.",
-    route: "/privileges/positions/add-position",
+    description: "Aspectos que son un impedimento y deben cambiar.",
+    route: "/credit/options/positions/add-position",
     crumbs: [
       {
-        path: "/",
+        path: "/home",
         label: "Inicio",
-        id: "/home",
+        id: "/",
         isActive: false,
       },
       {
-        path: "/credit",
+        path: "/options/credit",
         label: "Crédito",
         id: "/credit",
         isActive: false,
       },
       {
-        path: "/credit/positions",
+        path: "/credit/options/positions",
         label: "Prospectos",
         id: "/credit/positions",
-        isActive: false,
+        isActive: true,
       },
       {
-        path: "/credit/positions/add-position",
+        path: "/credit/options/positions/add-position",
         label: "Nuevo prospecto",
-        id: "/credit/positions/add-position",
+        id: "/credit/options/positions/add-position",
         isActive: true,
       },
     ],

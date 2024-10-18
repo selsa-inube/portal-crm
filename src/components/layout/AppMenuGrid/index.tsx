@@ -1,7 +1,10 @@
 import { Grid } from "@inubekit/grid";
 import { useMediaQuery } from "@inubekit/hooks";
-import { AppMenuCard } from "@components/cards/AppMenuCard/index";
-import { AppMenuCardProps } from "@components/cards/AppMenuCard";
+
+import {
+  AppMenuCard,
+  AppMenuCardProps,
+} from "@components/cards/AppMenuCard/index";
 
 interface AppMenuGridProps {
   appOptions: AppMenuCardProps[];
@@ -10,14 +13,14 @@ interface AppMenuGridProps {
 function AppMenuGrid(props: AppMenuGridProps) {
   const { appOptions } = props;
 
-  const screenMovil = useMediaQuery("(max-width:880px)");
+  const screenMobile = useMediaQuery("(max-width: 580px)");
 
   return (
     <Grid
       templateColumns={
-        screenMovil ? "1fr" : "repeat(auto-fill,minmax(auto, 100px))"
+        screenMobile ? "1fr" : "repeat(auto-fill,minmax(auto, 205px))"
       }
-      templateRows="2fr"
+      autoRows="auto"
       gap="24px"
     >
       {appOptions.map((item) => (
