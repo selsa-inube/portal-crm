@@ -13,11 +13,16 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@inubekit/breadcrumbs": "^2.31.1",
     "@inubekit/button": "^4.5.0",
     "@inubekit/divider": "^0.14.0",
     "@inubekit/grid": "^2.3.0",
     "@inubekit/header": "^2.5.0",
     "@inubekit/hooks": "^1.2.0",
+    "@inubekit/icon": "^2.16.0",
+    "@inubekit/table": "^5.30.0",
+    "@inubekit/textfield": "^2.36.0",
+    "localforage": "^1.10.0",
     "@inubekit/stack": "^3.8.0",
     "@inubekit/text": "^2.15.0",
     "react": "^18.3.1",
