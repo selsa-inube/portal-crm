@@ -9,9 +9,16 @@ const config: StorybookConfig = {
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
   ],
+  core: {
+    disableTelemetry: true,
+  },
   framework: {
     name: "@storybook/react-vite",
     options: {},
+  },
+  docs: {
+    autodocs: true,
+    defaultName: "Documentation",
   },
 };
 export default config;

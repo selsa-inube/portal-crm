@@ -13,10 +13,6 @@ const StyledAppPage = styled.div`
 const StyledContainer = styled.div`
   display: inherit;
   overflow: hidden;
-
-  p {
-    white-space: nowrap;
-  }
 `;
 
 const StyledMain = styled.main`
@@ -45,7 +41,7 @@ const StyledCollapseIcon = styled.div<IStyledCollapseIcon>`
   top: 13.5px;
   transform: ${({ $collapse }) =>
     $collapse ? "rotate(-90deg)" : "rotate(90deg)"};
-  left: 160px;
+  left: 142px;
 `;
 
 const StyledCollapse = styled.div`
