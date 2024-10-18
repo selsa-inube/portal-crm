@@ -1,5 +1,5 @@
-import { INav } from "@components/layout/AppPage/types";
 import { MdOutlineDescription } from "react-icons/md";
+import { INav } from "@components/layout/AppPage/types";
 
 const nav: INav = {
   title: "MENU",
