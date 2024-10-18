@@ -4,6 +4,10 @@ import { inube } from "@inubekit/foundations";
 
 import { StyledMenuContainerBoxShadowColor } from "./config";
 
+interface IStyledCollapseIcon {
+  $collapse: boolean;
+}
+
 const StyledAppPage = styled.div`
   display: inherit;
   box-sizing: border-box;
@@ -46,6 +50,20 @@ const StyledContainerNav = styled.div`
   max-height: calc(100vh - 50px);
 `;
 
+const StyledCollapseIcon = styled.div<IStyledCollapseIcon>`
+  display: flex;
+  transition: all 500ms ease;
+  position: absolute;
+  top: 13.5px;
+  transform: ${({ $collapse }) =>
+    $collapse ? "rotate(-90deg)" : "rotate(90deg)"};
+  left: 142px;
+`;
+
+const StyledCollapse = styled.div`
+  position: absolute;
+`;
+
 export {
   StyledAppPage,
   StyledContainer,
@@ -54,4 +72,6 @@ export {
   StyledMain,
   StyledMenuContainer,
   StyledContainerNav,
+  StyledCollapseIcon,
+  StyledCollapse,
 };

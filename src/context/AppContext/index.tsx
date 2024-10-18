@@ -38,7 +38,7 @@ export default function AppContextProvider(props: AppContextProviderProps) {
 
   const userContext: IAppContext = {
     user: {
-      username: `Camilo`,
+      username: "Dora Lucia",
       id: "abc123",
       company: company,
       operator: {
@@ -48,7 +48,6 @@ export default function AppContextProvider(props: AppContextProviderProps) {
     },
     handleClientChange,
   };
-
   return (
     <AppContext.Provider value={userContext}>{children}</AppContext.Provider>
   );
