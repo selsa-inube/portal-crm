@@ -69,7 +69,7 @@ export function PositionsUI(props: IPositionsProps) {
         </Stack>
         <Stack gap="32px" direction="column">
           <Stack justifyContent="end" alignItems="center">
-            <Button iconBefore={<MdAdd />} spacing="wide" type="link">
+            <Button iconBefore={<MdAdd />} spacing="wide" type="link" path="/credit/positions/add-position">
               Nuevo prospecto
             </Button>
           </Stack>

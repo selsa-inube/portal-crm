@@ -22,9 +22,9 @@ const creditOptionsConfig = [
         isActive: false,
       },
       {
-        path: "/credit/prospects",
+        path: "/credit/positions",
         label: "Prospectos",
-        id: "/credit/prospects",
+        id: "/credit/positions",
         isActive: true,
       },
     ],

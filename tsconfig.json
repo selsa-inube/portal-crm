@@ -18,6 +18,7 @@
       "@assets/*": ["src/assets/*"],
       "@services/*": ["src/services/*"],
       "@config/*": ["src/config/*"],
+      "@validations/*": ["src/validations/*"],
     },
 
     /* Bundler mode */
