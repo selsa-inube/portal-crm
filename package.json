@@ -13,6 +13,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@inubekit/foundations": "^5.11.2",
+    "@inubekit/label": "^3.0.1",
+    "@inubekit/toggle": "^3.4.0",
     "@inubekit/assisted": "^7.7.0",
     "@inubekit/blanket": "^2.24.0",
     "@inubekit/breadcrumbs": "^2.33.0",

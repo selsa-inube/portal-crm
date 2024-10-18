@@ -5,11 +5,13 @@ interface IStyledContainerFieldset {
   $aspectRatio?: string;
   $isMobile: boolean;
   $hasOverflow?: boolean;
+  $isSelected: boolean;
   $slim?: boolean;
 }
 
 export const StyledContainerFieldset = styled.div<IStyledContainerFieldset>`
-  overflow-y: ${({ $hasOverflow }) => ($hasOverflow ? "visible" : "auto")};
+  cursor: pointer;
+  box-sizing: border-box;
   overflow-x: hidden;
   border-radius: 8px;
   border-width: ${({ $slim }) => ($slim ? "1px" : "2px")};
@@ -25,6 +27,24 @@ export const StyledContainerFieldset = styled.div<IStyledContainerFieldset>`
   padding-bottom: 16px;
   padding-right: 8px;
   padding-left: 8px;
+  overflow-y: ${({ $hasOverflow }) => ($hasOverflow ? "visible" : "auto")};
+  aspect-ratio: ${({ $aspectRatio }) => $aspectRatio};
+  background-color: ${({ theme, $isSelected }) =>
+    !$isSelected
+      ? theme?.palette?.neutral?.N0 || inube.palette.neutral.N0
+      : theme?.palette?.blue?.B50 || inube.palette.blue.B50};
+  border-color: ${({ theme, $isSelected }) =>
+    !$isSelected
+      ? theme?.palette?.neutral?.N300 || inube.palette.neutral.N300
+      : theme?.palette?.blue?.B300 || inube.palette.blue.B300};
+  box-shadow: ${({ theme, $isSelected }) =>
+    $isSelected &&
+    `-12px 0px 0px ${
+      theme?.palette?.neutral?.N40 || inube.palette.neutral.N40
+    }`};
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
 
   ${({ $isMobile, theme }) =>
     !$isMobile &&
