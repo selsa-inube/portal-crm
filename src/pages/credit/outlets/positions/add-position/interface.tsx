@@ -3,11 +3,13 @@ import { Breadcrumbs } from "@inubekit/breadcrumbs";
 import { Stack } from "@inubekit/stack";
 import { useMediaQuery } from "@inubekit/hooks";
 import { Button } from "@inubekit/button";
-
 import { PageTitle } from "@components/PageTitle";
 import { IMessageState } from "@pages/credit/outlets/types/forms.types";
 
-import { createPositionConfig } from "./config/addPosition.config";
+import {
+  createPositionConfig,
+  stepsAddPosition,
+} from "./config/addPosition.config";
 import {
   IFormAddPosition,
   IFormAddPositionRef,
@@ -15,7 +17,7 @@ import {
   titleButtonTextAssited,
 } from "./types";
 import { StyledContainerAssisted } from "./styles";
-
+import { RequirementsNotMet } from "./steps/requirementsNotMet";
 
 interface StepDetails {
   id: number;
@@ -77,6 +79,10 @@ export function AddPositionUI(props: AddPositionUIProps) {
             />
           </StyledContainerAssisted>
         </>
+        {currentStepsNumber &&
+          currentStepsNumber.id === stepsAddPosition.generalInformation.id && (
+            <RequirementsNotMet />
+          )}
         <Stack justifyContent="end" gap="20px">
           <Button
             variant="outlined"
