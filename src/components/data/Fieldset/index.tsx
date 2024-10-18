@@ -11,17 +11,18 @@ interface IPtionsButton {
 }
 
 interface IFieldsetProps {
-  title: string;
+  title?: string;
+  children: JSX.Element | JSX.Element[];
+  isMobile: boolean;
   descriptionTitle?: string;
   aspectRatio?: string;
   heightFieldset?: string;
-  children: JSX.Element | JSX.Element[];
   activeButton?: IPtionsButton;
-  isMobile: boolean;
   hasTable?: boolean;
   hasOverflow?: boolean;
   isClickable?: boolean;
   isSelected?: boolean;
+  slim?: boolean;
   onClick?: () => void;
 }
 
@@ -37,6 +38,7 @@ export const Fieldset = (props: IFieldsetProps) => {
     hasOverflow,
     isClickable = false,
     isSelected = false,
+    slim,
     onClick,
   } = props;
 
@@ -80,6 +82,7 @@ export const Fieldset = (props: IFieldsetProps) => {
         $hasOverflow={hasOverflow}
         onClick={isClickable ? onClick : undefined}
         $isSelected={isSelected}
+        $slim={slim}
       >
         {children}
       </StyledContainerFieldset>

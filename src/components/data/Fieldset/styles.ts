@@ -6,6 +6,7 @@ interface IStyledContainerFieldset {
   $isMobile: boolean;
   $hasOverflow?: boolean;
   $isSelected: boolean;
+  $slim?: boolean;
 }
 
 export const StyledContainerFieldset = styled.div<IStyledContainerFieldset>`
@@ -13,8 +14,15 @@ export const StyledContainerFieldset = styled.div<IStyledContainerFieldset>`
   box-sizing: border-box;
   overflow-x: hidden;
   border-radius: 8px;
-  border-width: 2px;
+  border-width: ${({ $slim }) => ($slim ? "1px" : "2px")};
   border-style: solid;
+  aspect-ratio: ${({ $aspectRatio }) => $aspectRatio};
+  border-color: ${({ $slim, theme }) =>
+    $slim
+      ? theme?.palette?.neutral?.N50 || inube.palette.neutral.N50
+      : theme?.palette?.neutral?.N200 || inube.palette.neutral.N200};
+  box-shadow: 0px 2px 6px
+    ${({ theme }) => theme?.palette?.neutral?.N40 || inube.palette.neutral.N40};
   padding-top: 16px;
   padding-bottom: 16px;
   padding-right: 8px;
@@ -23,10 +31,8 @@ export const StyledContainerFieldset = styled.div<IStyledContainerFieldset>`
   aspect-ratio: ${({ $aspectRatio }) => $aspectRatio};
   background-color: ${({ theme, $isSelected }) =>
     !$isSelected
-      ? theme?.radiofield?.background?.color?.active ||
-        inube.radiofield.background.color.active
-      : theme?.radiofield?.background?.color?.checked ||
-        inube.palette.blue.B50};
+      ? theme?.palette?.neutral?.N0 || inube.palette.neutral.N0
+      : theme?.palette?.blue?.B50 || inube.palette.blue.B50};
   border-color: ${({ theme, $isSelected }) =>
     !$isSelected
       ? theme?.palette?.neutral?.N300 || inube.palette.neutral.N300
@@ -34,8 +40,7 @@ export const StyledContainerFieldset = styled.div<IStyledContainerFieldset>`
   box-shadow: ${({ theme, $isSelected }) =>
     $isSelected &&
     `-12px 0px 0px ${
-      theme?.radiofield?.background?.color?.checked ||
-      inube.radiofield.background.color.checked
+      theme?.palette?.neutral?.N40 || inube.palette.neutral.N40
     }`};
   transition:
     background-color 0.3s ease,

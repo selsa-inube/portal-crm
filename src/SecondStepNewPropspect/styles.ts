@@ -14,6 +14,5 @@ export const StyledContainer = styled.div<IStyledContainer>`
   overflow-y: ${({ $isMobile }) => $isMobile && "auto"};
   max-height: ${({ $isMobile }) => $isMobile && "436px"};
   border: 2px solid
-    ${({ theme }) =>
-      theme?.divider?.stroke?.color || inube.divider.stroke.color};
+    ${({ theme }) => theme?.palette?.neutral?.N30 || inube.palette.neutral.N30};
 `;
