@@ -20,7 +20,7 @@ interface IFieldsetProps {
   activeButton?: IPtionsButton;
   hasTable?: boolean;
   hasOverflow?: boolean;
-  slim?: boolean
+  slim?: boolean;
 }
 
 export const Fieldset = (props: IFieldsetProps) => {
@@ -33,7 +33,7 @@ export const Fieldset = (props: IFieldsetProps) => {
     activeButton,
     isMobile,
     hasOverflow,
-    slim
+    slim,
   } = props;
 
   return (

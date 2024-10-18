@@ -4,11 +4,11 @@ import { Stack } from "@inubekit/stack";
 import { useMediaQuery } from "@inubekit/hooks";
 import { Button } from "@inubekit/button";
 import { PageTitle } from "@components/PageTitle";
+import { LoanCondition } from "@components/inputs/LoanConditions";
 import { IMessageState } from "@pages/credit/outlets/types/forms.types";
 
 import {
-  createPositionConfig,
-  stepsAddPosition,
+  createPositionConfig, stepsAddPosition,
 } from "./config/addPosition.config";
 import {
   IFormAddPosition,
@@ -82,6 +82,10 @@ export function AddPositionUI(props: AddPositionUIProps) {
         {currentStepsNumber &&
           currentStepsNumber.id === stepsAddPosition.generalInformation.id && (
             <RequirementsNotMet />
+          )}
+        {currentStepsNumber &&
+          currentStepsNumber.id === stepsAddPosition.loanConditions.id && (
+            <LoanCondition/>
           )}
         <Stack justifyContent="end" gap="20px">
           <Button

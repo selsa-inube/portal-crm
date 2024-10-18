@@ -1,9 +1,9 @@
 import { useMediaQuery } from "@inubekit/hooks";
 import { Stack } from "@inubekit/stack";
-import { UnfulfilledRequirements } from "@src/components/cards/UnfulfilledRequirements";
+import { UnfulfilledRequirements } from "@components/cards/UnfulfilledRequirements";
+import { Fieldset } from "@components/data/Fieldset";
 
 import { dataNotMet } from "./config";
-import { Fieldset } from "@src/components/data/Fieldset";
 
 export function RequirementsNotMet() {
   const smallScreen = useMediaQuery("(max-width:880px)");
