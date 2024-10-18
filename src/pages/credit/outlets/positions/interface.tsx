@@ -16,7 +16,7 @@ import {
   Pagination,
 } from "@inubekit/table";
 import { PageTitle } from "@components/PageTitle";
-import { creditOptionsConfig } from "@pages/credit/config/credit.config";
+import { creditOptionsConfig } from "@src/config/credit/appcards.config";
 
 import { titlesOptions, positionsData } from "./config/dataPositions";
 import { IPosition } from "./types";
@@ -49,7 +49,9 @@ export function PositionsUI(props: IPositionsProps) {
   } = usePagination(positionsData, pageRecord);
 
   const displayedTitlesOptions = smallScreen
-    ? titlesOptions.filter(title => ['Código', 'Fecha-solicitud', 'Acciones'].includes(title.titleName))
+    ? titlesOptions.filter((title) =>
+        ["Código", "Fecha-solicitud", "Acciones"].includes(title.titleName)
+      )
     : titlesOptions;
 
   return (
@@ -69,7 +71,12 @@ export function PositionsUI(props: IPositionsProps) {
         </Stack>
         <Stack gap="32px" direction="column">
           <Stack justifyContent="end" alignItems="center">
-            <Button iconBefore={<MdAdd />} spacing="wide" type="link" path="/credit/positions/add-position">
+            <Button
+              iconBefore={<MdAdd />}
+              spacing="wide"
+              type="link"
+              path="/credit/options/positions/add-position"
+            >
               Nuevo prospecto
             </Button>
           </Stack>

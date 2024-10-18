@@ -8,7 +8,8 @@ import { LoanCondition } from "@components/inputs/LoanConditions";
 import { IMessageState } from "@pages/credit/outlets/types/forms.types";
 
 import {
-  createPositionConfig, stepsAddPosition,
+  createPositionConfig,
+  stepsAddPosition,
 } from "./config/addPosition.config";
 import {
   IFormAddPosition,
@@ -62,7 +63,7 @@ export function AddPositionUI(props: AddPositionUIProps) {
             <PageTitle
               title={createPositionConfig[0].title}
               description={createPositionConfig[0].description}
-              navigatePage="/credit/positions"
+              navigatePage="/credit/options/positions"
             />
           </Stack>
         </Stack>
@@ -85,7 +86,7 @@ export function AddPositionUI(props: AddPositionUIProps) {
           )}
         {currentStepsNumber &&
           currentStepsNumber.id === stepsAddPosition.loanConditions.id && (
-            <LoanCondition/>
+            <LoanCondition />
           )}
         <Stack justifyContent="end" gap="20px">
           <Button

@@ -29,8 +29,7 @@ const StyledAppCard = styled(Link)`
 
     && figure {
       color: ${({ theme }) =>
-        theme?.text?.primary?.content?.color?.regular ||
-        inube.text.primary.content.color.regular};
+        theme?.palette?.neutral?.N900 || inube.palette.neutral.N900};
     }
   }
 

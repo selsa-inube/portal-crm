@@ -20,7 +20,7 @@ const creditConfig = [
         isActive: true,
       },
     ],
-    url: "/credit/options",
+    url: "/credit",
   },
 ];
 
